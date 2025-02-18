@@ -1,0 +1,78 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/library-component" routerLinkActive="active" ariaCurrentWhenActive="page">SportFlow</button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button routerLink="/shoppingcart-component" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>shopping_cart</mat-icon></button>
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+
+    <router-outlet></router-outlet>
+    <div class="navbar">
+    <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>sports_soccer</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>sports_hockey</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports_tennis</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports_volleyball</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>golf_course</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports_football</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports_mma</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>sports_score</mat-icon>
+        </button>
+
+
+        
+    </mat-toolbar>
+    </div>
+        <router-outlet></router-outlet>
+        <mat-sidenav-container class="container">
+            <!-- Ľavý reklamný panel -->
+            <mat-sidenav mode="side" opened class="sidebar left-sidebar">
+            <img src="assets/ad_left.jpg" alt="Reklama vľavo">
+            </mat-sidenav>
+        
+            <!-- Hlavný obsah -->
+            <mat-sidenav-content class="main-content">
+            <router-outlet></router-outlet>
+            </mat-sidenav-content>
+        
+            <!-- Pravý reklamný panel -->
+            <mat-sidenav mode="side" position="end" opened class="sidebar right-sidebar">
+            <img src="assets/ad_right.jpg" alt="Reklama vpravo">
+            </mat-sidenav>
+            </mat-sidenav-container>
+            
+            <footer>
+                <mat-toolbar class="footer">
+                  <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
+                  <span class="spacer"></span>
+                  <a mat-button href="/terms">Podmienky používania</a>
+                  <a mat-button href="/privacy">Ochrana osobných údajov</a>
+                  <a mat-button href="/contact">Kontakt</a>
+                </mat-toolbar>
+              </footer>
