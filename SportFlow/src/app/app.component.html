@@ -1,6 +1,6 @@
 <mat-toolbar>
     
-    <img src="assets/sportflow.png" alt="logo" width="200" style="margin-top:65px; cursor: pointer;" >
+    <img  routerLink="home-component" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Example icon-button with menu icon" src="assets/sportflow.png" alt="logo" width="200" style="margin-top:65px; cursor: pointer;" >
 
    
     
@@ -15,12 +15,12 @@
     </button>
 </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    
     <div class="navbar">
     <mat-toolbar>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <img src="assets/laliga.png" alt="LaLiga" width="50" height="30">
+            <button mat-menu-item routerLink="laliga-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <img  src="assets/laliga.png" alt="LaLiga" width="50" height="30">
               Laliga
             </button>
             <button mat-menu-item>
@@ -66,7 +66,7 @@
         
     </mat-toolbar>
     </div>
-        <router-outlet></router-outlet>
+       
         <mat-sidenav-container class="container">
             <!-- Ľavý reklamný panel -->
             <mat-sidenav mode="side" opened class="sidebar left-sidebar">
