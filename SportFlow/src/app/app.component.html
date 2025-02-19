@@ -2,7 +2,7 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>home</mat-icon>
     </button>
-    <button mat-icon-button routerLink="/library-component" routerLinkActive="active" ariaCurrentWhenActive="page">SportFlow</button>
+    <img src="assets/sportflow.webp" alt="logo">
     <span class="example-spacer"></span>
     <button mat-icon-button routerLink="/shoppingcart-component" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>shopping_cart</mat-icon></button>
 
@@ -17,9 +17,25 @@
     <router-outlet></router-outlet>
     <div class="navbar">
     <mat-toolbar>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <img src="assets/laliga.png" alt="LaLiga" width="50" height="30">
+              Laliga
+            </button>
+            <button mat-menu-item>
+              <img src="assets/champions.png" alt="Champions League Logo" width="30" height="30">
+              Champions League
+            </button>
+            <button mat-menu-item>
+                <img src="assets/premier.png" alt="Premier League Logo" width="50" height="30">
+                Premier League
+              </button>
+          </mat-menu>
+          
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
             <mat-icon>sports_soccer</mat-icon>
-        </button>
+          </button>
+          
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
             <mat-icon>sports_hockey</mat-icon>
         </button>

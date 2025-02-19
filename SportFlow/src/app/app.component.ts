@@ -18,8 +18,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css',
   
+  
 
 })
 export class AppComponent {
   title = 'SportFlow';
+  
 }
