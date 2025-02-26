@@ -46,6 +46,6 @@ Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 
 | **Minimum Viable Product (MVP)**         | **Should Have** | **Nice to Have** |
 |------------------------------------------|-----------------|------------------|
-| TBD                                      | TBD             | TBD              |
-| TBD                                      | TBD             | TBD              |
-| TBD                                      | TBD             | TBD              |
+| Vizualizacia                             | Navbar,logo,dizajn| Acc,Favourite,Menu |
+| Funkcionalita pod stránok                |                 | TBD              |
+| Databáza,Firebase                        | TBD             | TBD              |
