@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DnesComponent } from '../dnes/dnes.component';
+import { SpravyComponent } from '../spravy/spravy.component';
 
 
 
@@ -8,6 +10,6 @@ import { CommonModule } from '@angular/common';
   selector: 'button-overview-example',
   templateUrl: 'home.component.html',
   styleUrl: 'home.component.css',
-  imports: [CommonModule],
+  imports: [CommonModule, SpravyComponent,DnesComponent],
 })
 export class HomeComponent {}
