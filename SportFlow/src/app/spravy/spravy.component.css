@@ -1,0 +1,30 @@
+h2 {
+    color:black
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:black
+  }
+  .news-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .news-item {
+    margin: 10px;
+    text-align: center;
+  }
+  .news-item img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .news-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
