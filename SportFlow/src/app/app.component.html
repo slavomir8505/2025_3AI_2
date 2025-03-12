@@ -1,71 +1,70 @@
-<mat-toolbar>
-    
-    <img  routerLink="home-component" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Example icon-button with menu icon" src="assets/sportflow.png" alt="logo" width="200" style="margin-top:65px; cursor: pointer;" >
+<mat-toolbar color="primary">
+    <!-- Logo s odkazom domov -->
+    <img routerLink="/" aria-label="Logo" src="assets/sportflow.png" alt="logo" width="100" style="cursor: pointer;">
 
-   
-    
+    <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
+
+    <!-- Menu s ligami -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>sports_soccer</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/laliga" class="menu-item">
+            <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small"> 
+            <span>LaLiga</span>
+        </button>
+        <button mat-menu-item routerLink="/champions" class="menu-item">
+            <img src="assets/champions.png" alt="Champions League" class="menu-logo-small">
+            <span>Champions League</span>
+        </button>
+        <button mat-menu-item routerLink="/premier" class="menu-item">
+            <img src="assets/premier.png" alt="Premier League" class="menu-logo-small">
+            <span>Premier League</span>
+        </button>
+    </mat-menu>
+
+    <!-- Ikony športov -->
+    <button mat-icon-button aria-label="Hokej">
+        <mat-icon>sports_hockey</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Tenis">
+        <mat-icon>sports_tennis</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Volejbal">
+        <mat-icon>sports_volleyball</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Golf">
+        <mat-icon>golf_course</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Americký futbal">
+        <mat-icon>sports_football</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="MMA">
+        <mat-icon>sports_mma</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Športové výsledky">
+        <mat-icon>sports_score</mat-icon>
+    </button>
+
     <span class="example-spacer"></span>
-    <button mat-icon-button routerLink="/shoppingcart-component" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>shopping_cart</mat-icon></button>
 
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <!-- Košík -->
+    <button mat-icon-button routerLink="/shoppingcart">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <!-- Profil -->
+    <button mat-icon-button aria-label="Profil">
         <mat-icon>person</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+
+    <!-- Menu -->
+    <button mat-icon-button aria-label="Menu">
         <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
 
     
-    <div class="navbar">
-    <mat-toolbar>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="laliga-component" routerLinkActive="active" ariaCurrentWhenActive="page">
-                <img  src="assets/laliga.png" alt="LaLiga" width="50" height="30">
-              Laliga
-            </button>
-            <button mat-menu-item>
-              <img src="assets/champions.png" alt="Champions League Logo" width="30" height="30">
-              Champions League
-            </button>
-            <button mat-menu-item>
-                <img src="assets/premier.png" alt="Premier League Logo" width="50" height="30">
-                Premier League
-              </button>
-          </mat-menu>
-          
-          <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>sports_soccer</mat-icon>
-          </button>
-          
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>sports_hockey</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports_tennis</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports_volleyball</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>golf_course</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports_football</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports_mma</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>sports_score</mat-icon>
-        </button>
-
-
-        
-    </mat-toolbar>
-    </div>
        
         <mat-sidenav-container class="container">
             <!-- Ľavý reklamný panel -->
