@@ -9,10 +9,14 @@ import { AccountComponent } from './account/account.component';
 
 
 export const routes: Routes = [
-    {path: '',component: HomeComponent},
+    {path: '',component: HomeComponent,
+    children: [
     {path:'laliga-component', component: LaligaComponent},
     {path:'spravy-component', component: SpravyComponent },
     {path:'dnes-component', component: DnesComponent },
      {path:'account-component', component: AccountComponent },
      
+    
+     ]
+    }
       ]

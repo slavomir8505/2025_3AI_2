@@ -7,7 +7,9 @@
     <!-- Menu s ligami -->
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>sports_soccer</mat-icon>
-    </button>
+            </button>
+        
+    
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/laliga" class="menu-item">
             <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small"> 
@@ -54,15 +56,18 @@
     </button>
 
     <!-- Profil -->
-    <button style="color: white;" routerLink="/account-component" routerLinkActive="active" ariaCurrentWhenActive="page" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>person</mat-icon>
-      </button>
+    <a routerLink="/account-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
+            <mat-icon>person</mat-icon>
+        </button>
+    </a>
 
     <!-- Menu -->
     <button mat-icon-button aria-label="Menu">
         <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
+
 
     
        
@@ -74,7 +79,10 @@
         
             <!-- Hlavný obsah -->
             <mat-sidenav-content class="main-content">
-            <router-outlet></router-outlet>
+                <!--<app-spravy></app-spravy>
+                <app-dnes></app-dnes>-->
+                <router-outlet></router-outlet>
+                
             </mat-sidenav-content>
         
             <!-- Pravý reklamný panel -->
