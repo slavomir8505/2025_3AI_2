@@ -14,9 +14,9 @@ export const routes: Routes = [
     {path:'laliga-component', component: LaligaComponent},
     {path:'spravy-component', component: SpravyComponent },
     {path:'dnes-component', component: DnesComponent },
-     {path:'account-component', component: AccountComponent },
-     
+    {path:'account-component', component: AccountComponent },
     
-     ]
+    
+    ]
     }
-      ]
+    ]

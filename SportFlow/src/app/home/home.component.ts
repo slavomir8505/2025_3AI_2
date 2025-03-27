@@ -6,19 +6,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { RouterOutlet, RouterModule, ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { RouterLink } from '@angular/router';
-import { AppComponent } from '../app.component';
+import { SpravyComponent } from '../spravy/spravy.component';
+import { DnesComponent } from '../dnes/dnes.component';
 
 
 
 
 @Component({
-  selector: 'button-overview-example',
+  selector: 'home-app',
   templateUrl: 'home.component.html',
   styleUrl: 'home.component.css',
-  imports: [MatButtonModule,MatDividerModule,MatIconModule,MatSlideToggleModule,RouterOutlet,MatToolbarModule,MatMenuModule,MatSidenavModule,AppComponent,CommonModule,RouterLink],
+  imports: [MatButtonModule,RouterModule,SpravyComponent,DnesComponent, MatDividerModule, MatIconModule, MatSlideToggleModule, MatToolbarModule, MatMenuModule, MatSidenavModule, CommonModule,],
 })
 export class HomeComponent {}

@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SpravyComponent } from './spravy/spravy.component';
 import { DnesComponent } from './dnes/dnes.component';
 import { RouterLink } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -17,7 +18,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [MatButtonModule,MatDividerModule,MatIconModule,MatSlideToggleModule,RouterOutlet,MatToolbarModule,MatMenuModule,MatSidenavModule,SpravyComponent,DnesComponent,RouterLink],
+  imports: [MatButtonModule,MatDividerModule,MatIconModule,MatSlideToggleModule,MatToolbarModule,MatMenuModule,MatSidenavModule,RouterLink,HomeComponent],
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css',
   

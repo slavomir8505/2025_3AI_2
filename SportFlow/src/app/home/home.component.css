@@ -1,0 +1,113 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+/* Hlavný toolbar */
+mat-toolbar {
+    background-color: #000000; /* Modrá farba Material Design */
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* Oddeľovač medzi prvkami, aby sa tlačidlá rovnomerne rozložili */
+.example-spacer {
+    flex-grow: 1;
+}
+
+/* Športová navigácia */
+.navbar mat-toolbar {
+    background-color: black; /* Svetlá sivá */
+    display: flex;
+    justify-content: center;
+}
+
+/* Ikony v toolbare */
+mat-icon {
+    font-size: 24px;
+}
+
+/* Tlačidlá s ikonami */
+button[mat-icon-button] {
+    margin: 0 8px; /* Pridá medzery medzi ikonami */
+}
+
+/* Zvýraznenie aktívneho odkazu */
+button[routerLinkActive="active"] {
+    color: black; /* Ružová farba pre aktívne tlačidlá */
+}
+
+/* Prispôsobenie pre mobilné zariadenia */
+@media (max-width: 600px) {
+    .navbar mat-toolbar {
+        flex-wrap: wrap;
+    }
+
+    button[mat-icon-button] {
+        margin: 4px;
+    }
+}
+
+/* Celý layout */
+.container {
+    height: 100vh;
+    display: flex;
+}
+
+  /* Štýly pre hlavný obsah */
+.main-content {
+    flex: 1;
+    padding: 15px;
+    background-color: white;
+}
+
+  /* Štýly pre sidebar */
+.sidebar  {
+    width: 250px;
+    background-color: #1976d2;
+    border: 20px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+  /* Obrázky reklám */
+.sidebar img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.sidebar  {
+    width: 250px;
+    background-color: #004285;
+    border: 20px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer {
+    background-color: black; /* Tmavšia farba pre lepší kontrast */
+color: white;
+align-items: center;
+justify-content: center;
+padding: 5px;
+bottom: 0;
+width: 100%;
+font-size: 75%;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Menší rozostup medzi logom a textom */
+    width: 100%;
+}
+
+.menu-logo-small {
+    width: 40px; /* Veľmi malé logo */
+    height: auto;
+}
+
