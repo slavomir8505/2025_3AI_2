@@ -1,1 +1,101 @@
+<mat-toolbar color="primary">
+    <!-- Logo s odkazom domov -->
+    <img routerLink="/" aria-label="Logo" src="assets/sportflow.png" alt="logo" width="100" style="cursor: pointer;">
 
+    <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
+
+    <!-- Menu s ligami -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>sports_soccer</mat-icon>
+            </button>
+        
+    
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/laliga" class="menu-item">
+            <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small"> 
+            <span>LaLiga</span>
+        </button>
+        <button mat-menu-item routerLink="/champions" class="menu-item">
+            <img src="assets/champions.png" alt="Champions League" class="menu-logo-small">
+            <span>Champions League</span>
+        </button>
+        <button mat-menu-item routerLink="/premier" class="menu-item">
+            <img src="assets/premier.png" alt="Premier League" class="menu-logo-small">
+            <span>Premier League</span>
+        </button>
+    </mat-menu>
+
+    <!-- Ikony športov -->
+    <button mat-icon-button aria-label="Hokej">
+        <mat-icon>sports_hockey</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Tenis">
+        <mat-icon>sports_tennis</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Volejbal">
+        <mat-icon>sports_volleyball</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Golf">
+        <mat-icon>golf_course</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Americký futbal">
+        <mat-icon>sports_football</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="MMA">
+        <mat-icon>sports_mma</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Športové výsledky">
+        <mat-icon>sports_score</mat-icon>
+    </button>
+
+    <span class="example-spacer"></span>
+
+    <!-- Košík -->
+    <button mat-icon-button routerLink="/shoppingcart">
+        <mat-icon>favorite</mat-icon>
+    </button>
+
+    <!-- Profil -->
+    <a routerLink="/account-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
+            <mat-icon>person</mat-icon>
+        </button>
+    </a>
+
+    <!-- Menu -->
+    <button mat-icon-button aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+
+
+    
+       
+        <mat-sidenav-container class="container">
+            <!-- Ľavý reklamný panel -->
+            <mat-sidenav mode="side" opened class="sidebar left-sidebar">
+            <img src="assets/ad_left.jpg" alt="Reklama vľavo">
+            </mat-sidenav>
+        
+            <!-- Hlavný obsah -->
+            <mat-sidenav-content class="main-content">
+                
+                <router-outlet></router-outlet>
+                
+            </mat-sidenav-content>
+        
+            <!-- Pravý reklamný panel -->
+            <mat-sidenav mode="side" position="end" opened class="sidebar right-sidebar">
+            <img src="assets/ad_right.jpg" alt="Reklama vpravo">
+            </mat-sidenav>
+            </mat-sidenav-container>
+            
+            <footer>
+                <mat-toolbar class="footer">
+                  <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
+                  <span class="spacer"></span>
+                  <a mat-button href="/terms">Podmienky používania</a>
+                  <a mat-button href="/privacy">Ochrana osobných údajov</a>
+                  <a mat-button href="/contact">Kontakt</a>
+                </mat-toolbar>
+              </footer>
