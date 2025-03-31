@@ -7,12 +7,11 @@
     <!-- Menu s ligami -->
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>sports_soccer</mat-icon>
-            </button>
-        
-    
+    </button>
+
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/laliga" class="menu-item">
-            <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small"> 
+            <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small">
             <span>LaLiga</span>
         </button>
         <button mat-menu-item routerLink="/champions" class="menu-item">
@@ -56,7 +55,7 @@
     </button>
 
     <!-- Profil -->
-    <a routerLink="/account-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <a routerLink="/account" routerLinkActive="active" ariaCurrentWhenActive="page">
         <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
             <mat-icon>person</mat-icon>
         </button>
@@ -68,27 +67,26 @@
     </button>
 </mat-toolbar>
 
+<mat-sidenav-container class="container">
+    <!-- Ľavý reklamný panel -->
+    <mat-sidenav mode="side" opened class="sidebar left-sidebar">
+        <img src="assets/ad_left.jpg" alt="Reklama vľavo">
+    </mat-sidenav>
 
-    
-       
-        <mat-sidenav-container class="container">
-            <!-- Ľavý reklamný panel -->
-            <mat-sidenav mode="side" opened class="sidebar left-sidebar">
-            <img src="assets/ad_left.jpg" alt="Reklama vľavo">
-            </mat-sidenav>
-            <!-- Pravý reklamný panel -->
-            <mat-sidenav mode="side" position="end" opened class="sidebar right-sidebar">
-                <img src="assets/ad_right.jpg" alt="Reklama vpravo">
-                </mat-sidenav>
-                </mat-sidenav-container>
-                
-                <footer>
-                    <mat-toolbar class="footer">
-                        <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
-                        <span class="spacer"></span>
-                        <a mat-button href="/terms">Podmienky používania</a>
-                        <a mat-button href="/privacy">Ochrana osobných údajov</a>
-                        <a mat-button href="/contact">Kontakt</a>
-                    </mat-toolbar>
-                </footer>
-    
+    <router-outlet></router-outlet>
+
+    <!-- Pravý reklamný panel -->
+    <mat-sidenav mode="side" position="end" opened class="sidebar right-sidebar">
+        <img src="assets/ad_right.jpg" alt="Reklama vpravo">
+    </mat-sidenav>
+</mat-sidenav-container>
+
+<footer>
+    <mat-toolbar class="footer">
+        <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
+        <span class="spacer"></span>
+        <a mat-button href="/terms">Podmienky používania</a>
+        <a mat-button href="/privacy">Ochrana osobných údajov</a>
+        <a mat-button href="/contact">Kontakt</a>
+    </mat-toolbar>
+</footer>
