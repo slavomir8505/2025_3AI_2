@@ -80,7 +80,8 @@ button[routerLinkActive="active"] {
 
 .sidebar  {
     width: 250px;
-    background-color: #004285;
+    background: rgb(11,79,221);
+background: radial-gradient(circle, rgba(11,79,221,1) 2%, rgba(15,21,130,1) 94%);
     border: 20px black;
     display: flex;
     justify-content: center;
