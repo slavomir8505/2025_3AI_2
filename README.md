@@ -49,3 +49,6 @@ Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 | Vizualizacia                             | Navbar,logo,dizajn| Acc,Favourite,Menu |
 | Funkcionalita pod stránok                |                 | TBD              |
 | Databáza,Firebase                        | TBD             | TBD              |
+
+Sprint1 splnené: dizajn,routing,formula
+Sprint2:firebase,zjednotenie designu,La liga 
