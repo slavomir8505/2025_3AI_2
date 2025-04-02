@@ -2,7 +2,19 @@
 
   body{
     background-color: white;
+    width: 100%;
+    justify-content: center;
   }
 
- 
 
+  .main-content {
+    background: white;
+    justify-content: ;
+    padding: 20px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;                                
+    height: 100vh;
+  }
