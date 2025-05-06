@@ -1,7 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
@@ -19,6 +17,3 @@ const firebaseConfig = {
   measurementId: "G-3YM33E2CVT"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
