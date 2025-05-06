@@ -3,96 +3,112 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Jost', sans-serif;
-  }
-  
-  body {
+}
+
+body {
 	display: flex;
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-  }
-  
-  .main {
-	width: 350px;
-	height: 500px;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+.main {
+	width: 750px;
+	height: 600px;
 	background: #fff;
 	overflow: hidden;
-	border-radius: 10px;
-	box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	border-radius: 15px;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
 	position: relative;
-	border-color: black;
-  }
-  
-  #chk {
+}
+
+#chk {
 	display: none;
-  }
-  
-  .signup, .login {
+}
+
+.signup, .login {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	padding: 40px;
-	transition: transform 0.6s ease-in-out;
-  }
-  
-  .signup {
+	transition: transform 0.6s ease-in-out, opacity 0.5s ease;
+}
+
+.signup {
 	transform: translateX(100%);
-  }
-  
-  .login {
+	opacity: 0;
+}
+
+.login {
 	transform: translateX(0);
-  }
-  
-  #chk:checked ~ .signup {
+	opacity: 1;
+}
+
+#chk:checked ~ .signup {
 	transform: translateX(0);
-  }
-  
-  #chk:checked ~ .login {
+	opacity: 1;
+}
+
+#chk:checked ~ .login {
 	transform: translateX(-100%);
-  }
-  
-  form {
+	opacity: 0;
+}
+
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	height: 100%;
-  }
-  
-  form label {
+}
+
+form label {
 	font-size: 2em;
 	color: #333;
 	margin-bottom: 20px;
 	text-align: center;
 	cursor: pointer;
-  }
-  
-  input {
+}
+
+form label:hover {
+	color: #3a7bd5;
+}
+
+input {
 	margin: 10px 0;
 	padding: 12px;
 	border: 1px solid #ccc;
-	border-radius: 20px;
+	border-radius: 25px;
 	outline: none;
-	transition: 0.3s;
-  }
-  
-  input:focus {
+	transition: border-color 0.3s, box-shadow 0.3s;
+	background: #f8f8f8;
+}
+
+input:focus {
 	border-color: #3a7bd5;
-	box-shadow: 0 0 5px rgba(58, 123, 213, 0.5);
-  }
-  
-  button {
+	box-shadow: 0 0 8px rgba(58, 123, 213, 0.4);
+}
+
+button {
 	margin-top: 20px;
 	padding: 12px;
 	border: none;
-	border-radius: 20px;
+	border-radius: 25px;
 	background: #3a7bd5;
 	color: white;
 	font-size: 1em;
 	cursor: pointer;
-	transition: background 0.3s ease;
-  }
-  
-  button:hover {
+	transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
 	background: #2f5f9b;
-  }
-  
+	transform: translateY(-2px);
+}
+
+button:active {
+	transform: translateY(2px);
+}
+
