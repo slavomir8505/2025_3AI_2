@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrácia / Prihlásenie</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Registrácia / Prihlásenie</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="wrapper">
-    <input type="checkbox" id="chk" aria-hidden="true">
+    <div class="main">  	
+        <input type="checkbox" id="chk" aria-hidden="true">
 
-    <div class="form-wrapper">
-      <div class="form signup">
-        <form>
-          <label for="chk" class="toggle-label">Registrácia</label>
-          <input type="text" name="name" placeholder="Meno" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="password" name="password" placeholder="Heslo" required>
-          <button type="submit">Zaregistrovať sa</button>
-        </form>
-      </div>
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Registrácia</label>
+                <input type="text" name="name" placeholder="Meno" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Heslo" required>
 
-      <div class="form login">
-        <form>
-          <label for="chk" class="toggle-label">Prihlásiť sa</label>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="password" name="password" placeholder="Heslo" required>
-          <button type="submit">Prihlásiť sa</button>
-        </form>
-      </div>
+                <button type="submit">Zaregistrovať sa</button>
+            </form>
+        </div>
+
+        <div class="login">
+            <form>
+                <label for="chk" aria-hidden="true">Prihlásiť sa</label>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Heslo" required>
+
+                <button type="submit">Prihlásiť sa</button>
+            </form>
+        </div>
     </div>
-  </div>
 </body>
 </html>
