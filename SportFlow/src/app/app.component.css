@@ -53,41 +53,6 @@ button[routerLinkActive="active"] {
     display: flex;
 }
 
-  /* Štýly pre hlavný obsah */
-.main-content {
-    flex: 1;
-    padding: 15px;
-    background-color: white;
-}
-
-  /* Štýly pre sidebar */
-.sidebar  {
-    width: 250px;
-    background-color: #1976d2;
-    border: 20px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-  /* Obrázky reklám */
-.sidebar img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.sidebar  {
-    width: 250px;
-    background: rgb(11,79,221);
-background: radial-gradient(circle, rgba(11,79,221,1) 2%, rgba(15,21,130,1) 94%);
-    border: 20px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
 
 .footer {
     background-color: black; /* Tmavšia farba pre lepší kontrast */
