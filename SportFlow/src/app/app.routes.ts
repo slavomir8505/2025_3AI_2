@@ -4,6 +4,7 @@ import { LaligaComponent } from './laliga/laliga.component';
 import { SpravyComponent } from './spravy/spravy.component';
 import { DnesComponent } from './dnes/dnes.component';
 import { AccountComponent } from './account/account.component';
+import { KontaktComponent } from './kontakt/kontakt.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: 'spravy', component: SpravyComponent },
     { path: 'dnes', component: DnesComponent },
     { path: 'account', component: AccountComponent },
+    { path: 'kontakt', component: KontaktComponent },
 ];
