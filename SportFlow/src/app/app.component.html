@@ -2,6 +2,13 @@
 
 <div class="prvy">
 <mat-toolbar class="prvy">
+
+ <!-- Logo s odkazom domov -->
+ <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="150" style="cursor: pointer;">
+
+ <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
+
+
     <!-- Košík -->
     <button mat-icon-button routerLink="/shoppingcart">
         <mat-icon>favorite</mat-icon>
@@ -22,11 +29,7 @@
 </div>
 
 <mat-toolbar color="primary">
-    <!-- Logo s odkazom domov -->
-    <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="150" style="cursor: pointer;">
-
-    <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
-
+   
     <!-- Menu s ligami -->
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>sports_soccer</mat-icon>

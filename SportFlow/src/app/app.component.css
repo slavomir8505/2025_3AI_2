@@ -3,7 +3,7 @@
 }
 /* Hlavný toolbar */
 mat-toolbar {
-    background-color: grey; /* Modrá farba Material Design */
+    background-color: #3a7bd5; /* Modrá farba Material Design */
     color: white;
     display: flex;
     align-items: center;
