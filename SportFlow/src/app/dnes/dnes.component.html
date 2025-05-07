@@ -1,4 +1,10 @@
-<h2>Program PremierLeague</h2>
-<img src="assets/tabulka.png" alt="Real Madrid El Clásico">
+<div *ngFor="let league of leagues" >
+    <div class="league-card">
+       
+        <h2 class="league-name">{{ league.name }}</h2>
+        <p class="league-description">{{ league.description }}</p>
+        
+    </div>
+</div>
 
 
