@@ -3,7 +3,7 @@
 }
 /* Hlavný toolbar */
 mat-toolbar {
-    background-color: #000000; /* Modrá farba Material Design */
+    background-color: grey; /* Modrá farba Material Design */
     color: white;
     display: flex;
     align-items: center;
@@ -16,7 +16,6 @@ mat-toolbar {
 
 /* Športová navigácia */
 .navbar mat-toolbar {
-    background-color: black; /* Svetlá sivá */
     display: flex;
     justify-content: center;
 }
@@ -76,5 +75,10 @@ font-size: 75%;
 .menu-logo-small {
     width: 40px; /* Veľmi malé logo */
     height: auto;
+}
+
+.prvy {
+    justify-content: right;
+    background-color: black;
 }
 

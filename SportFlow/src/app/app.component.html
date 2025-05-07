@@ -1,3 +1,26 @@
+
+
+<div class="prvy">
+<mat-toolbar class="prvy">
+    <!-- Košík -->
+    <button mat-icon-button routerLink="/shoppingcart">
+        <mat-icon>favorite</mat-icon>
+    </button>
+
+    <!-- Profil -->
+    <a routerLink="/account" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
+            <mat-icon>person</mat-icon>
+        </button>
+    </a>
+
+    <!-- Menu -->
+    <button mat-icon-button aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+</div>
+
 <mat-toolbar color="primary">
     <!-- Logo s odkazom domov -->
     <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="150" style="cursor: pointer;">
@@ -49,22 +72,7 @@
 
     <span class="example-spacer"></span>
 
-    <!-- Košík -->
-    <button mat-icon-button routerLink="/shoppingcart">
-        <mat-icon>favorite</mat-icon>
-    </button>
-
-    <!-- Profil -->
-    <a routerLink="/account" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
-            <mat-icon>person</mat-icon>
-        </button>
-    </a>
-
-    <!-- Menu -->
-    <button mat-icon-button aria-label="Menu">
-        <mat-icon>menu</mat-icon>
-    </button>
+ 
 </mat-toolbar>
 
     <router-outlet></router-outlet>
