@@ -53,3 +53,4 @@ Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 Sprint1 splnené: dizajn,routing,formula
 Sprint2:firebase,zjednotenie designu,La liga 
 Sprint3: FireBase,Autentifikacia,Problem s dizajnom
+Sprint4: Komponent League dynamicke data,autentifikacie

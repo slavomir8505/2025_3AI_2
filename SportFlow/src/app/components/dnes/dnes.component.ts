@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MyServiceService } from '../my-service.service';
-import { LeagueDescription } from '../leaguedescprition';
+import { LeagueService } from '../../services/league.service';
+import { League } from '../../interfaces/league.interface';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -11,8 +11,8 @@ import { NgFor } from '@angular/common';
 })
 
 export class DnesComponent {
-  leagues!: LeagueDescription[];
-  constructor(private service: MyServiceService) {
+  leagues!: League[];
+  constructor(private service: LeagueService) {
     // Initialization logic can go here
     this.service.getListOfLeagues().subscribe(list=>{
       this.leagues = list
