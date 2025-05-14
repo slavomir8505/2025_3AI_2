@@ -7,8 +7,8 @@
 mat-toolbar {
     background-color: #3a7bd5;
     color: white;
+    display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 /* Športová navigácia - centrovanie tlačidiel */
@@ -54,7 +54,7 @@ button[routerLinkActive="active"] {
 
 /* Footer */
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     background-color: black;
