@@ -7,7 +7,7 @@ import { Team } from '../interfaces/team.interface';
 @Injectable({
     providedIn: 'root'
   })
-  export class TeamsService {
+  export class TeamService {
   
   
     constructor(private store: AngularFirestore) { }
