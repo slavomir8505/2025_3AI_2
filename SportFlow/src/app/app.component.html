@@ -31,9 +31,7 @@
 <mat-toolbar color="primary">
    
     <!-- Menu s ligami -->
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>sports_soccer</mat-icon>
-    </button>
+   
 
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/laliga" class="menu-item">
@@ -49,8 +47,14 @@
             <span>Premier League</span>
         </button>
     </mat-menu>
+ <!-- Logo s odkazom domov -->
+ <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="0" style="cursor: pointer;">
 
-    <!-- Ikony športov -->
+ <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
+    <!-- Ikony športov --> 
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>sports_soccer</mat-icon>
+    </button>
     <button mat-icon-button aria-label="Hokej">
         <mat-icon>sports_hockey</mat-icon>
     </button>

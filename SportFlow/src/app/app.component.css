@@ -1,23 +1,22 @@
+/* Spacer - len pre toolbar, kde chceš prvky rozložiť */
 .example-spacer {
     flex: 1 1 auto;
 }
+
 /* Hlavný toolbar */
 mat-toolbar {
-    background-color: #3a7bd5; /* Modrá farba Material Design */
+    background-color: #3a7bd5;
     color: white;
-    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-/* Oddeľovač medzi prvkami, aby sa tlačidlá rovnomerne rozložili */
-.example-spacer {
-    flex-grow: 1;
-}
-
-/* Športová navigácia */
+/* Športová navigácia - centrovanie tlačidiel */
 .navbar mat-toolbar {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* centrovanie horizontálne */
+    align-items: center;      /* centrovanie vertikálne */
+    gap: 8px;                 /* medzery medzi tlačidlami */
 }
 
 /* Ikony v toolbare */
@@ -27,18 +26,19 @@ mat-icon {
 
 /* Tlačidlá s ikonami */
 button[mat-icon-button] {
-    margin: 0 8px; /* Pridá medzery medzi ikonami */
+    margin: 0 8px;
 }
 
-/* Zvýraznenie aktívneho odkazu */
+/* Zvýraznenie aktívneho odkazu – čierna farba */
 button[routerLinkActive="active"] {
-    color: black; /* Ružová farba pre aktívne tlačidlá */
+    color: black;
 }
 
 /* Prispôsobenie pre mobilné zariadenia */
 @media (max-width: 600px) {
     .navbar mat-toolbar {
         flex-wrap: wrap;
+        justify-content: center; /* zachovať centrovanie aj na mobile */
     }
 
     button[mat-icon-button] {
@@ -52,33 +52,34 @@ button[routerLinkActive="active"] {
     display: flex;
 }
 
-
+/* Footer */
 .footer {
-    background-color: black; /* Tmavšia farba pre lepší kontrast */
-color: white;
-align-items: center;
-justify-content: center;
-padding: 5px;
-bottom: 0;
-width: 100%;
-font-size: 75%;
-
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    font-size: 75%;
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 10px; /* Menší rozostup medzi logom a textom */
+    gap: 10px;
     width: 100%;
 }
 
 .menu-logo-small {
-    width: 40px; /* Veľmi malé logo */
+    width: 40px;
     height: auto;
 }
 
 .prvy {
-    justify-content: right;
+    justify-content: flex-end;
     background-color: black;
 }
-
