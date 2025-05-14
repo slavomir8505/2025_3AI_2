@@ -44,11 +44,13 @@ Stávkarov, ktorí sledujú live výsledky a detailné údaje o zápasoch.
 Športových analytikov a novinárov, ktorí potrebujú rýchly prístup k údajom.
 Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 
-| **Minimum Viable Product (MVP)**         | **Should Have** | **Nice to Have** |
+| **Šprint**         | **Should Have** | **Nice to Have** |
 |------------------------------------------|-----------------|------------------|
-| Vizualizacia                             | Navbar,logo,dizajn| Acc,Favourite,Menu |
-| Funkcionalita pod stránok                |                 | TBD              |
-| Databáza,Firebase                        | TBD             | TBD              |
+|      1            | splnene| dizajn,routing,formula |
+|      2             |          zjednotenie designu,La liga       | firebase            |
+|     3                   | FireBase, Problem s dizajnom        | Autentifikacia        |
+|     4                   |     Komponent League dynamicke data       | autentifikacie            |
+
 
 Sprint1 splnené: dizajn,routing,formula
 Sprint2:firebase,zjednotenie designu,La liga 
