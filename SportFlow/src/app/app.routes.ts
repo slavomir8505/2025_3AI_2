@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LaligaComponent } from './laliga/laliga.component';
-import { SpravyComponent } from './spravy/spravy.component';
-import { DnesComponent } from './dnes/dnes.component';
+import { HomeComponent } from './components/home/home.component';
+import { LaligaComponent } from './components/laliga/laliga.component';
+import { SpravyComponent } from './components/spravy/spravy.component';
+import { DnesComponent } from './components/dnes/dnes.component';
 import { AccountComponent } from './account/account.component';
-import { KontaktComponent } from './kontakt/kontakt.component';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
