@@ -7,6 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { LeagueService } from './services/league.service';
+import { League } from './interfaces/league.interface';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,12 +23,21 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     MatSidenavModule, 
     RouterLink,
     RouterLinkActive,
+    NgFor,
     RouterOutlet],
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css'
 })
 export class AppComponent {
   title = 'SportFlow';
+  leagues!: League[];
+  constructor(private service: LeagueService) {
+    // Initialization logic can go here
+    this.service.getListOfLeagues().subscribe(list=>{
+      this.leagues = list
+      console.log(this.leagues)
+    })
+  }
 }
 
 
