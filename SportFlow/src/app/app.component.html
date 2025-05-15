@@ -34,19 +34,16 @@
    
 
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/laliga" class="menu-item">
-            <img src="assets/laliga.png" alt="LaLiga" class="menu-logo-small">
-            <span>LaLiga</span>
+        
+
+        <button *ngFor="let league of leagues" mat-menu-item routerLink="/laliga" class="menu-item">
+            <img [src]="league.imageUrl" [alt]="league.name" class="menu-logo-small">
+            <span>{{ league.name }}</span>
         </button>
-        <button mat-menu-item routerLink="/champions" class="menu-item">
-            <img src="assets/champions.png" alt="Champions League" class="menu-logo-small">
-            <span>Champions League</span>
-        </button>
-        <button mat-menu-item routerLink="/premier" class="menu-item">
-            <img src="assets/premier.png" alt="Premier League" class="menu-logo-small">
-            <span>Premier League</span>
-        </button>
+       
+
     </mat-menu>
+
  <!-- Logo s odkazom domov -->
  <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="0" style="cursor: pointer;">
 
