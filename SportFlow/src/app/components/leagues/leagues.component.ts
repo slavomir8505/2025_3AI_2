@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule, ActivatedRoute } from '@angular/router';
 @Component({
-  selector: 'app-laliga',
+  selector: 'app-leagues',
   imports: [CommonModule],
-  templateUrl: './laliga.component.html',
-  styleUrl: './laliga.component.css'
+  templateUrl: './leagues.component.html',
+  styleUrl: './leagues.component.css'
 })
-export class LaligaComponent {
+export class LeaguesComponent {
 
 }
