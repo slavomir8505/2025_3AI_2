@@ -44,11 +44,11 @@ Stávkarov, ktorí sledujú live výsledky a detailné údaje o zápasoch.
 Športových analytikov a novinárov, ktorí potrebujú rýchly prístup k údajom.
 Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 
-| **Šprint**         | **Should Have** | **Nice to Have** |
-|------------------------------------------|-----------------|------------------|
-|      1            | splnene| dizajn,routing,formula |
-|      2             |          zjednotenie designu,La liga       | firebase            |
-|     3                   | FireBase, Problem s dizajnom        | Autentifikacia        |
-|     4                   |     Komponent League dynamicke data       | autentifikacie            |
+| **Šprint**         | **Should Have**                     | **Nice to Have** |
+|------------------------------------------|-----------------|-------------------|
+|     1              |     splnene| dizajn,routing,formula |
+|     2              |     zjednotenie designu,La liga     | firebase            |
+|     3              |     FireBase, Problem s dizajnom    | Autentifikacia      |
+|     4              |     Komponent League dynamicke data | autentifikacie      |
 
 
