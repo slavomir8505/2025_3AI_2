@@ -1,3 +1,22 @@
 body{
     background-color: white;
 }
+h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        p {
+            text-align: justify;
+        }
+    .centered-image {
+            display: block;
+            margin: 40px auto; /* zarovnání + svislý mezery */
+            padding: 20px;
+            max-width: 100%;
+            width: 40%;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            
+        }
