@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LeagueService } from '../../services/league.service';
-import { League } from '../../interfaces/league.interface';
+import { SpravyService } from '../../services/spravy.service';
 import { NgFor } from '@angular/common';
+import { Spravy } from '../../interfaces/spravy.interface';
 
 @Component({
   selector: 'app-dnes',
@@ -11,12 +11,12 @@ import { NgFor } from '@angular/common';
 })
 
 export class DnesComponent {
-  leagues!: League[];
-  constructor(private service: LeagueService) {
+  spravy!: Spravy[];
+  constructor(private service: SpravyService) {
     // Initialization logic can go here
-    this.service.getListOfLeagues().subscribe(list=>{
-      this.leagues = list
-      console.log(this.leagues)
+    this.service.getListOfSpravy().subscribe(list=>{
+      this.spravy = list
+      console.log(this.spravy)
     })
   }
 
