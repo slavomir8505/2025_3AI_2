@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <title>Registrácia / Prihlásenie</title>
-    <link rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-=======
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrácia / Prihlásenie</title>
-  <link rel="stylesheet" >
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+  <style>
+
+  </style>
 </head>
 <body>
-    <div class="main">  	
-        <input type="checkbox" id="chk" aria-hidden="true">
+  <div class="main">  	
+    <input type="checkbox" id="chk" aria-hidden="true">
 
-        <div class="signup">
-            <form>
-                <label for="chk" aria-hidden="true">Registrácia</label>
-                <input type="text" name="name" placeholder="Meno" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Heslo" required>
+    <div class="signup">
+      <form>
+        <label for="chk" aria-hidden="true">Registrácia</label>
+        <input type="text" name="name" placeholder="Meno" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Heslo" required>
+        <button type="submit">Zaregistrovať sa</button>
+      </form>
+    </div>
 
-                <button type="submit">Zaregistrovať sa</button>
-            </form>
+    <div class="login">
+      <form>
+        <label for="chk" aria-hidden="true">Prihlásiť sa</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Heslo" required>
+        <button type="submit">Prihlásiť sa</button>
+        
+        <div class="switch-to-register">
+          <label for="chk">Nemáte účet? <span>Zaregistrujte sa</span></label>
         </div>
+      </form>
 
-        <div class="login">
-            <form>
-                <label for="chk" aria-hidden="true">Prihlásiť sa</label>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Heslo" required>
-
-                <button type="submit">Prihlásiť sa</button>
-                <p class="register-text">
-  Nemáte účet? <a href="/register">Zaregistrujte sa</a>
-</p>
-
-            </form>
-
-            <!-- Animated sports background -->
-    <div class="background">
+      <div class="background">
         <i class="fas fa-football-ball sport-object ball"></i>
         <i class="fas fa-hockey-puck sport-object hockey-stick"></i>
         <i class="fas fa-bicycle sport-object skates"></i>
         <i class="fas fa-basketball-ball sport-object football"></i>
+      </div>
     </div>
-        </div>
-    </div>
+  </div>
 </body>
 </html>
