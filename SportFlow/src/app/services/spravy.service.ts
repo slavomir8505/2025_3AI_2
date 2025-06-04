@@ -13,7 +13,7 @@ import { Spravy } from "../interfaces/spravy.interface";
     constructor(private store: AngularFirestore) { }
   
     getListOfSpravy(): Observable<Spravy[]>{
-      return this.store.collection<Spravy>('Spravy').get().pipe(
+      return this.store.collection<Spravy>('spravy').get().pipe(
         map(snapshot =>
           snapshot.docs.map(doc => ({ ...(doc.data()) as Spravy}))
         )
