@@ -50,5 +50,6 @@ Kluby a hráčov, ktorí sledujú vývoj svojich súperov.
 |     2              |     zjednotenie designu,La liga     | firebase            |
 |     3              |     FireBase, Problem s dizajnom    | Autentifikacia      |
 |     4              |     Komponent League dynamicke data | autentifikacie      |
+|     5              |      autentifikacie,tabulky s ligami,zmena formularu    | |    oblubene timy   |
 
 
