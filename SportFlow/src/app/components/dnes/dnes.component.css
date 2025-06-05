@@ -8,6 +8,7 @@
   align-items: flex-start;
   gap: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
 }
 
 .spravy-card:hover {
