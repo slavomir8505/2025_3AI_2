@@ -12,10 +12,15 @@ export class LeagueService {
   constructor(private store: AngularFirestore) { }
 
   getListOfLeagues(): Observable<League[]>{
-    return this.store.collection<League>('leagues').get().pipe(
-      map(snapshot =>
-        snapshot.docs.map(doc => ({ ...(doc.data()) as League}))
-      )
-    )
+    return this.store.collection<League>('leagues')
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => ({
+            id: a.payload.doc.id,
+            ...(a.payload.doc.data() as League)
+          }))
+        )
+      );
   }
 }

@@ -8,7 +8,7 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'leagues', component: LeaguesComponent },
+    { path: 'league/:uid', component: LeaguesComponent },
     { path: 'spravy', component: SpravyComponent },
     { path: 'dnes', component: DnesComponent },
     { path: 'account', component: AccountComponent },

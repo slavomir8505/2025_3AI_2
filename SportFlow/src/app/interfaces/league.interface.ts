@@ -1,5 +1,5 @@
 export interface League {
-  id: string;
+  id?: string;
   name: string;
   description: string;
   imageUrl: string;

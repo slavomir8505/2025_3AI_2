@@ -36,7 +36,7 @@
     <mat-menu #menu="matMenu">
         
 
-        <button *ngFor="let league of leagues" mat-menu-item routerLink="/leagues" class="menu-item">
+        <button *ngFor="let league of leagues" mat-menu-item [routerLink]="['/league', league.id]" [state]="{ league: league }" class="menu-item">
             <img [src]="league.imageUrl" [alt]="league.name" class="menu-logo-small">
             <span>{{ league.name }}</span>
         </button>
