@@ -13,22 +13,9 @@ import { TeamService } from '../../services/team.service';
 export class LeaguesComponent {
   team!: Team[];
   leagues!: League[];
+league: any;
   
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: TeamService) {
-    const nav = this.router.getCurrentNavigation();
-    this.leagues = nav?.extras.state?.['leagues'];
-    this.service.getListOfTeam().subscribe((list: Team[])=>{
-      this.team = list
-      console.log(this.team)
-    })
-
-    // Ak by neexistoval (napr. reload), vieš si zobrať ID z parametrov:
-    if (!this.leagues) {
-      const id = this.route.snapshot.paramMap.get('id');
-
-      // Fetchni zo servera podľa ID (fallback)
-    }
-  }
+  
 
 }
