@@ -48,3 +48,16 @@
     max-width: 300px;
   }
 }
+
+.sports-news-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a73e8; /* modrá farba, športový feel */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #1a73e8;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
