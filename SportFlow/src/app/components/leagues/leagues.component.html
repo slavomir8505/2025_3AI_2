@@ -1,6 +1,8 @@
 
-       
-        <h2 class="spravy-title">{{ league.name }}</h2>
+@for(team of this.teams; track team.id) {
+        <h2 class="leagues-name">{{team.name}}</h2>
+}
+        
       
         
 

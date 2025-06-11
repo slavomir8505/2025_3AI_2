@@ -8,15 +8,13 @@ import { Team } from '../interfaces/team.interface';
     providedIn: 'root'
   })
   export class TeamService {
-    getListOfTeam() {
-      throw new Error('Method not implemented.');
-    }
+    
   
   
     constructor(private store: AngularFirestore) { }
   
     getListOfTeams(): Observable<Team[]>{
-      return this.store.collection<Team>('Teams')
+      return this.store.collection<Team>('teams')
       .snapshotChanges()
       .pipe(
         map(actions =>
@@ -27,4 +25,16 @@ import { Team } from '../interfaces/team.interface';
         )
       );
     }
+  
+  
+    getTeamsById(id: string): Observable<Team[]> {
+      return this.store
+        .collection<Team>('teams', (ref) => ref.where('leagueId', '==', id))
+        .valueChanges()
+        .pipe(
+          map((teamArray: Team[]) =>
+             teamArray
+          ),
+        );
   }
+}
