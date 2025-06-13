@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
+
 @Component({
   standalone: true,
   selector: 'app-account',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,],
   template: `
     <h2>Prihlásenie</h2>
     <form (ngSubmit)="login()">
