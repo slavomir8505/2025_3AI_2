@@ -5,6 +5,7 @@ import { SpravyComponent } from './components/spravy/spravy.component';
 import { DnesComponent } from './components/dnes/dnes.component';
 import { AccountComponent } from './account/account.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: 'dnes', component: DnesComponent },
     { path: 'account', component: AccountComponent },
     { path: 'kontakt', component: KontaktComponent },
+    { path: 'settings', component: SettingsComponent, }
 
     
 ];
