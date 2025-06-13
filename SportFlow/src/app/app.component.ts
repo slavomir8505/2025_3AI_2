@@ -11,6 +11,7 @@ import { LeagueService } from './services/league.service';
 import { League } from './interfaces/league.interface';
 import { NgFor } from '@angular/common';
 
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -24,7 +25,8 @@ import { NgFor } from '@angular/common';
     RouterLink,
     RouterLinkActive,
     NgFor,
-    RouterOutlet],
+    RouterOutlet,
+  ],
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css'
 })

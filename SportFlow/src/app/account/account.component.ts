@@ -1,37 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 
 @Component({
+  standalone: true,
   selector: 'app-account',
+  imports: [RouterModule,MatButtonModule, MatToolbarModule,MatIconModule,],
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrl: './account.component.css'
 })
 export class AccountComponent {
-  registerName = '';
-  registerEmail = '';
-  registerPassword = '';
 
-  loginEmail = '';
-  loginPassword = '';
-
-  constructor(private authService: AuthenticationService) {}
-
-  onRegister(event: Event) {
-    event.preventDefault();
-    this.authService.register(this.registerName, this.registerEmail, this.registerPassword)
-      .subscribe({
-        next: user => alert('Registrácia úspešná!'),
-        error: err => alert('Chyba pri registrácii: ' + err.message)
-      });
-  }
-
-  onLogin(event: Event) {
-    event.preventDefault();
-    this.authService.login(this.loginEmail, this.loginPassword)
-      .subscribe({
-        next: user => alert('Prihlásenie úspešné!'),
-        error: err => alert('Chyba pri prihlásení: ' + err.message)
-      });
-  }
 }
