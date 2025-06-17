@@ -1,9 +1,13 @@
+<div class="teams-list">
+  <div class="team-item" *ngFor="let team of this.teams;">
+    <img [src]="team.imageUrl" [alt]="team.name" class="team-logo">
+    <span class="team-name">{{ team.name }}</span>
+  </div>
+</div>
 
-@for(team of this.teams; track team.id) {
-        <h2 class="leagues-name">{{team.name}}</h2>
-}
+
         
       
-        
+
 
 

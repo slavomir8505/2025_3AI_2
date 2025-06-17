@@ -3,5 +3,6 @@ export interface Team {
     name: string;
     leagueId: string;
     imageUrl: string;
+    points: number;
 
 }

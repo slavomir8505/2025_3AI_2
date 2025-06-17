@@ -1,22 +1,35 @@
-body{
-    background-color: white;
+.teams-list {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 6px;
+  overflow: hidden;
 }
-h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
 
-        p {
-            text-align: justify;
-        }
-    .centered-image {
-            display: block;
-            margin: 40px auto; /* zarovnání + svislý mezery */
-            padding: 20px;
-            max-width: 100%;
-            width: 40%;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            
-        }
+.team-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.team-item:hover {
+  background-color: #3a7bd5;
+  color: white;
+}
+
+.team-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
