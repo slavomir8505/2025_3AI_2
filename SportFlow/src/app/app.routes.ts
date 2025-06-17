@@ -16,7 +16,8 @@ export const routes: Routes = [
     { path: 'dnes', component: DnesComponent },
     { path: 'account', component: AccountComponent },
     { path: 'kontakt', component: KontaktComponent },
-    { path: 'settings', component: SettingsComponent, }
+    { path: 'settings', component: SettingsComponent },
+    
 
     
 ];
