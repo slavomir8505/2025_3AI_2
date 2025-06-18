@@ -9,7 +9,7 @@ import { MatButton } from '@angular/material/button';
 @Component({
   standalone: true,
   selector: 'app-account',
-  imports: [CommonModule, FormsModule, MatButton,],
+  imports: [CommonModule, FormsModule,],
   template: `
     <h2>Prihlásenie</h2>
     <form (ngSubmit)="login()">
