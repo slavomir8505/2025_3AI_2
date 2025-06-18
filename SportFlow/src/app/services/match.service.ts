@@ -1,22 +1,21 @@
-import { Observable,map } from "rxjs";
-import { Match } from "../interfaces/match.interface";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Match } from '../interfaces/match.interface';
 
+import {
+  Firestore,
+  collection,
+  collectionData,
+} from '@angular/fire/firestore';
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class MatchService {
-  
-  
-    constructor(private store: AngularFirestore) { }
-  
-    getListOfMatch(): Observable<Match[]>{
-      return this.store.collection<Match>('Match').get().pipe(
-        map(snapshot =>
-          snapshot.docs.map(doc => ({ ...(doc.data()) as Match}))
-        )
-      )
-    }
+  providedIn: 'root',
+})
+export class MatchService {
+  private firestore: Firestore = inject(Firestore);
+
+  getListOfMatch(): Observable<Match[]> {
+    const matchCollection = collection(this.firestore, 'Match');
+    return collectionData(matchCollection) as Observable<Match[]>;
   }
+}

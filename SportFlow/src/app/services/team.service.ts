@@ -1,30 +1,24 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { map, Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Team } from '../interfaces/team.interface';
 
+import {
+  Firestore,
+  collection,
+  collectionData,
+} from '@angular/fire/firestore';
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class TeamService {
-    getListOfTeam() {
-      throw new Error('Method not implemented.');
-    }
-  
-  
-    constructor(private store: AngularFirestore) { }
-  
-    getListOfTeams(): Observable<Team[]>{
-      return this.store.collection<Team>('Teams')
-      .snapshotChanges()
-      .pipe(
-        map(actions =>
-          actions.map(a => ({
-            id: a.payload.doc.id,
-            ...(a.payload.doc.data() as Team)
-          }))
-        )
-      );
-    }
+  providedIn: 'root',
+})
+export class TeamService {
+
+  private firestore: Firestore = inject(Firestore);
+
+  getListOfTeams(): Observable<Team[]> {
+    const teamsCollection = collection(this.firestore, 'Teams');
+    return collectionData(teamsCollection, { idField: 'id' }) as Observable<
+      Team[]
+    >;
   }
+}

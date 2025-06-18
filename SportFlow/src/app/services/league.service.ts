@@ -1,26 +1,24 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { map, Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { League } from '../interfaces/league.interface';
 
+import {
+  Firestore,
+  collection,
+  collectionData,
+} from '@angular/fire/firestore';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LeagueService {
+  private firestore: Firestore = inject(Firestore);
 
+  getListOfLeagues(): Observable<League[]> {
+    const leaguesCollection = collection(this.firestore, 'leagues');
 
-  constructor(private store: AngularFirestore) { }
-
-  getListOfLeagues(): Observable<League[]>{
-    return this.store.collection<League>('leagues')
-      .snapshotChanges()
-      .pipe(
-        map(actions =>
-          actions.map(a => ({
-            id: a.payload.doc.id,
-            ...(a.payload.doc.data() as League)
-          }))
-        )
-      );
+    return collectionData(leaguesCollection, { idField: 'id' }) as Observable<
+      League[]
+    >;
   }
 }
