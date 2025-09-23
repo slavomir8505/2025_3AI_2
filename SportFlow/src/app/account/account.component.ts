@@ -5,12 +5,29 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
 
+
 @Component({
+
   selector: 'app-account',
   imports: [RouterModule,MatButtonModule, MatToolbarModule,MatIconModule,],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
+
+
+
+
+
+
 })
 export class AccountComponent {
+
+
+
+
+
+
+
+
+
 
 }

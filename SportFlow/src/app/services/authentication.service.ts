@@ -3,13 +3,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
 import { Authentication } from '../interfaces/authentication.interface';
 
-
-
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
-
 
 constructor(private store: AngularFirestore) { }
 
