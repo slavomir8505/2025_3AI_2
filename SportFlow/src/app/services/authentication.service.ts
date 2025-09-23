@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
-import { from } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map, Observable } from 'rxjs';
+import { Authentication } from '../interfaces/authentication.interface';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthenticationService {
-  constructor(private auth: Auth, private firestore: Firestore) {}
 
-  register(name: string, email: string, password: string) {
-    return from(
-      createUserWithEmailAndPassword(this.auth, email, password).then(async res => {
-        const userRef = doc(this.firestore, `users/${res.user.uid}`);
-        await setDoc(userRef, { name, email });
-        return res.user;
-      })
-    );
-  }
+constructor(private store: AngularFirestore) { }
 
-  login(email: string, password: string) {
-    return from(signInWithEmailAndPassword(this.auth, email, password));
-  }
+getListOfAuthentication(): Observable<Authentication[]>{
+    return this.store.collection<Authentication>('authentication').get().pipe(
+        map(snapshot =>
+        snapshot.docs.map(doc => ({ ...(doc.data()) as Authentication}))
+        )
+    )
+    }
 }
