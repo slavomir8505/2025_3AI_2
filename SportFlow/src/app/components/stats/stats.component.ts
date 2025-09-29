@@ -25,9 +25,10 @@ export class StatsComponent {
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
 
-  colorScheme = {
-    domain: ['#1fb112ff', '#A10A28', '#C7B42C', '#AAAAAA'],
-  };
+colorScheme = {
+  domain: ['#2e7d32', '#43a047', '#66bb6a', '#a5d6a7'],
+};
+
 
   constructor() {}
 

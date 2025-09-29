@@ -1,0 +1,30 @@
+.stats-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px 35px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #f0f6ff, #ffffff);
+  box-shadow: 0 6px 18px rgba(0, 60, 130, 0.15);
+  text-align: center;
+  border: 1px solid #d0e3ff;
+}
+
+.stats-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0d47a1; /* tmavšia modrá */
+}
+
+.stats-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: #1565c0; /* stredná modrá */
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

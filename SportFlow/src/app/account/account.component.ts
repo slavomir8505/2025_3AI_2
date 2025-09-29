@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule, RouterOutlet } from '@angular/router';
-
-
+import { RouterModule } from '@angular/router';
 
 @Component({
 
@@ -13,21 +11,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 
-
-
-
-
-
 })
 export class AccountComponent {
-
-
-
-
-
-
-
-
-
 
 }

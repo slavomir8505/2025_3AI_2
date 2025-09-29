@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { map, Observable } from 'rxjs';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Authentication } from '../interfaces/authentication.interface';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthenticationService {
 
-constructor(private store: AngularFirestore) { }
+  constructor(private firestore: Firestore) {}
 
-getListOfAuthentication(): Observable<Authentication[]>{
-    return this.store.collection<Authentication>('authentication').get().pipe(
-        map(snapshot =>
-        snapshot.docs.map(doc => ({ ...(doc.data()) as Authentication}))
-        )
-    )
-    }
+  getListOfAuthentication(): Observable<Authentication[]> {
+    const authRef = collection(this.firestore, 'authentication');
+    return collectionData(authRef, { idField: 'id' }) as Observable<Authentication[]>;
+  }
 }
