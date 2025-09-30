@@ -1,3 +1,4 @@
+
 <div class="stats-card">
   <h2 class="stats-title">📊 Štatistiky používateľov</h2>
   <p class="stats-subtitle">Rozdelenie podľa krajín</p>
@@ -5,7 +6,7 @@
   <div class="chart-container">
     <ngx-charts-pie-chart
       [view]="view"
-      [results]="single"
+      [results]="allStats"
       [gradient]="gradient"
       [legend]="showLegend"
       [labels]="showLabels"
@@ -18,3 +19,4 @@
     </ngx-charts-pie-chart>
   </div>
 </div>
+
