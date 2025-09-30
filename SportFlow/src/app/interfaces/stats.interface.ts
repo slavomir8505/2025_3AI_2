@@ -1,4 +1,4 @@
-export interface Pie {
+export interface Stats {
     name: string;
     value: number;
 

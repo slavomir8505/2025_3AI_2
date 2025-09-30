@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { StatsService } from '../../services/stats.service';
+import { Stats } from '../../interfaces/stats.interface';
 
 @Component({
   selector: 'app-graph',
@@ -9,12 +11,16 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   standalone: true, // pridaj ak používaš standalone komponenty
 })
 export class StatsComponent {
-  single: any[] = [
-    { name: 'Germany', value: 8940000 },
-    { name: 'USA', value: 5000000 },
-    { name: 'France', value: 7200000 },
-    { name: 'UK', value: 6200000 },
-  ];
+allStats: Stats[] = [];
+constructor(
+  private statsService: StatsService
+) {}
+ngOnInit(): void {
+  this.statsService.getStatsOfStats()
+  .subscribe(stats =>{
+    this.allStats = stats;
+  })
+}
 
   view: [number, number] = [700, 400];
 
@@ -29,7 +35,7 @@ export class StatsComponent {
     domain: ['#1fb112ff', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  constructor() {}
+  
 
   onSelect(data: { name: string; value: number }): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
