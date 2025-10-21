@@ -14,20 +14,20 @@ export class AuthService {
     user$ = this.userSubject.asObservable();
 
     constructor() {
-    onAuthStateChanged(this.auth, user => this.userSubject.next(user));
+        onAuthStateChanged(this.auth, user => this.userSubject.next(user));
     }
 
     login(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+        return signInWithEmailAndPassword(this.auth, email, password);
     }
 
     logout() {
-    return signOut(this.auth).then(() => {
-        this.router.navigateByUrl('/');
-    });
+        return signOut(this.auth).then(() => {
+            this.router.navigateByUrl('/');
+        });
     }
 
     isLoggedIn(): boolean {
-    return this.auth.currentUser !== null;
+        return this.auth.currentUser !== null;
     }
 }
