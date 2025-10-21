@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 
@@ -10,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 @Component({
 
   selector: 'app-account',
-  imports: [RouterModule, MatButtonModule, MatToolbarModule, MatIconModule],
+  imports: [MatButtonModule, MatToolbarModule, MatIconModule],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 })

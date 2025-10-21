@@ -14,11 +14,11 @@
     </div>
 
     <div class="login">
-      <form>
+      <form (ngSubmit)="login()">
         <label for="chk" aria-hidden="true">Prihlásiť sa</label>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Heslo" required>
-        <button type="submit" (click)="login()" >Prihlásiť sa</button>
+        <button type="submit" >Prihlásiť sa</button>
         
         <div class="switch-to-register">
           <label for="chk">Nemáte účet? <span>Zaregistrujte sa</span></label>
