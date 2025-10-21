@@ -3,17 +3,18 @@ import { HomeComponent } from './components/home/home.component';
 import { LeaguesComponent } from './components/leagues/leagues.component';
 import { SpravyComponent } from './components/spravy/spravy.component';
 import { DnesComponent } from './components/dnes/dnes.component';
-import { AccountComponent } from './account/account.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'league/:id', component: LeaguesComponent },
     { path: 'spravy', component: SpravyComponent },
     { path: 'dnes', component: DnesComponent },
-    { path: 'account', component: AccountComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: 'kontakt', component: KontaktComponent },
-    { path: 'stats', component: StatsComponent },
-
+    { path: 'stats', component: StatsComponent }
 ];
