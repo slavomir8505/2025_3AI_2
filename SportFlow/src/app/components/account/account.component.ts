@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
 
   selector: 'app-account',
-  imports: [RouterModule,MatButtonModule, MatToolbarModule,MatIconModule,],
+  imports: [RouterModule,MatButtonModule, MatToolbarModule,MatIconModule],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 
