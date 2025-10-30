@@ -5,11 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
+  standalone: true, // odporúčané pre moderné Angular projekty
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -20,14 +21,19 @@ import { AuthService } from '../../services/auth.service';
     RouterLink,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'] // ✅ opravené (bolo styleUrl)
 })
 export class LoginComponent {
 
   form: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  // ✅ Router musí byť injektovaný cez konštruktor
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -38,14 +44,15 @@ export class LoginComponent {
     if (this.form.valid) {
       console.log('Login form value:', this.form.value);
       this.errorMessage = null;
+
       this.authService.login(this.form.value.username, this.form.value.password)
         .then(() => {
-          // successful login — navigation or further logic can be added in the service
+          console.log('Login successful');
+          // ✅ Presmerovanie po úspešnom prihlásení
+          this.router.navigateByUrl('/settings');
         })
         .catch((err: any) => {
-          // Capture and display a friendly message
           console.error('Login error', err);
-          // err may be a FirebaseError with code/message
           this.errorMessage = err?.message || 'Login failed. Please try again.';
         });
     } else {

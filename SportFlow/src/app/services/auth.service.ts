@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut, onAuthStateChanged, User } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+providedIn: 'root'
 })
 export class AuthService {
     private auth = inject(Auth);
@@ -13,21 +13,29 @@ export class AuthService {
     private userSubject = new BehaviorSubject<User | null>(null);
     user$ = this.userSubject.asObservable();
 
-    constructor() {
-        onAuthStateChanged(this.auth, user => this.userSubject.next(user));
-    }
+constructor() {
+    onAuthStateChanged(this.auth, user => this.userSubject.next(user));
+}
 
-    login(email: string, password: string) {
-        return signInWithEmailAndPassword(this.auth, email, password);
-    }
+  // Prihlásenie
+login(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+}
 
-    logout() {
-        return signOut(this.auth).then(() => {
-            this.router.navigateByUrl('/');
-        });
-    }
+  // Registrácia bez username
+register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
+}
 
-    isLoggedIn(): boolean {
-        return this.auth.currentUser !== null;
-    }
+  // Odhlásenie
+logout() {
+    return signOut(this.auth).then(() => {
+    this.router.navigateByUrl('/login');
+    });
+}
+
+  // Overenie prihlásenia
+isLoggedIn(): boolean {
+    return this.auth.currentUser !== null;
+}
 }

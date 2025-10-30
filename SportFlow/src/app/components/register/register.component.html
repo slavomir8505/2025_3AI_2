@@ -1,1 +1,49 @@
-<p>register works!</p>
+<div class="register-wrapper">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="register()">
+
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="register-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" autocomplete="email" />
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="form.get('email')?.hasError('email')">
+            Enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="register-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="new-password" />
+          <mat-error *ngIf="form.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+            Password must be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Actions -->
+        <mat-card-actions class="register-actions">
+          <a mat-button color="accent" routerLink="/login">Already have an account?</a>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            Register
+          </button>
+        </mat-card-actions>
+      </form>
+
+      <!-- Error -->
+      <div *ngIf="errorMessage" role="alert" class="register-error">
+        <strong>Error:</strong> {{ errorMessage }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
