@@ -4,38 +4,40 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
-    private auth = inject(Auth);
-    private router = inject(Router);
+  private auth = inject(Auth);
+  private router = inject(Router);
 
-    private userSubject = new BehaviorSubject<User | null>(null);
-    user$ = this.userSubject.asObservable();
+  // Observable pre aktuálneho používateľa
+  private userSubject = new BehaviorSubject<User | null>(null);
+  user$ = this.userSubject.asObservable();
 
-constructor() {
+  constructor() {
+    // Sleduje stav prihlásenia používateľa a aktualizuje user$
     onAuthStateChanged(this.auth, user => this.userSubject.next(user));
-}
+  }
 
   // Prihlásenie
-login(email: string, password: string) {
+  login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
-}
+  }
 
-  // Registrácia bez username
-register(email: string, password: string) {
+  // Registrácia (len email + password)
+  register(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password);
-}
+  }
 
   // Odhlásenie
-logout() {
+  logout() {
     return signOut(this.auth).then(() => {
-    this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login'); // presmerovanie po logout
     });
-}
+  }
 
-  // Overenie prihlásenia
-isLoggedIn(): boolean {
+  // Overenie prihlásenia (synchronné)
+  isLoggedIn(): boolean {
     return this.auth.currentUser !== null;
-}
+  }
 }
