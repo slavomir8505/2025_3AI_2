@@ -7,10 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  standalone: true, // odporúčané pre moderné Angular projekty
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -19,19 +20,20 @@ import { AuthService } from '../../services/auth.service';
     MatCardModule,
     MatButtonModule,
     RouterLink,
+    NgIf,
+    AsyncPipe
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] // ✅ opravené (bolo styleUrl)
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
   form: FormGroup;
   errorMessage: string | null = null;
 
-  // ✅ Router musí byť injektovaný cez konštruktor
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    public authService: AuthService, // public aby sme mohli použiť user$ v HTML
     private router: Router
   ) {
     this.form = this.fb.group({
@@ -42,14 +44,13 @@ export class LoginComponent {
 
   login() {
     if (this.form.valid) {
-      console.log('Login form value:', this.form.value);
+      const { username, password } = this.form.value;
       this.errorMessage = null;
 
-      this.authService.login(this.form.value.username, this.form.value.password)
+      this.authService.login(username, password)
         .then(() => {
           console.log('Login successful');
-          // ✅ Presmerovanie po úspešnom prihlásení
-          this.router.navigateByUrl('/settings');
+          this.router.navigateByUrl('/settings'); // alebo hociktorá chránená stránka
         })
         .catch((err: any) => {
           console.error('Login error', err);
@@ -60,4 +61,7 @@ export class LoginComponent {
     }
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }

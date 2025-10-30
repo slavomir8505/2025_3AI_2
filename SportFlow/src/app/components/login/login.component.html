@@ -1,33 +1,51 @@
+<ng-container *ngIf="authService.user$ | async as user; else loginForm">
+<!-- Prihlásený používateľ -->
+<mat-card>
+    <mat-card-header>
+    <mat-card-title>Welcome, {{ user.email }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <p>User ID: {{ user.uid }}</p>
+    <!-- Tu môžeš pridať ďalšie údaje z profilu -->
+    </mat-card-content>
+    <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </mat-card-actions>
+</mat-card>
+</ng-container>
+
+<ng-template #loginForm>
+<!-- Pôvodný login formulár -->
 <div class="login-wrapper">
- 	<mat-card color="secondary">
- 		<mat-card-header>
- 			<mat-card-title>Login</mat-card-title>
- 		</mat-card-header>
- 		<mat-card-content>
- 			<form [formGroup]="form" (ngSubmit)="login()">
- 				<mat-form-field class="login-field">
-					<mat-label>Username</mat-label>
-					<input matInput formControlName="username" autocomplete="username" />
-					<mat-error *ngIf="form.get('username')?.hasError('required')">Username is required</mat-error>
-				</mat-form-field>
+    <mat-card color="secondary">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="login()">
+        <mat-form-field class="login-field">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" autocomplete="username" />
+            <mat-error *ngIf="form.get('username')?.hasError('required')">Username is required</mat-error>
+        </mat-form-field>
 
-				<mat-form-field class="login-field">
-					<mat-label>Password</mat-label>
-					<input matInput formControlName="password" type="password" autocomplete="current-password" />
-					<mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
-				</mat-form-field>
+        <mat-form-field class="login-field">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" autocomplete="current-password" />
+            <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
+        </mat-form-field>
 
-				<mat-card-actions class="login-actions">
-					<a mat-raised-button color="primary" routerLink="/register">Don't have an account?</a>
+        <mat-card-actions class="login-actions">
+            <a mat-raised-button color="primary" routerLink="/register">Don't have an account?</a>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </mat-card-actions>
+        </form>
 
-					<button mat-raised-button color="primary" type="submit">Login</button>
-				</mat-card-actions>
-			</form>
-
-			<!-- show auth error -->
-			<div *ngIf="errorMessage" role="alert" class="login-error">
-				<strong>Error:</strong> {{ errorMessage }}
-			</div>
-		</mat-card-content>
-	</mat-card>
+        <!-- show auth error -->
+        <div *ngIf="errorMessage" role="alert" class="login-error">
+        <strong>Error:</strong> {{ errorMessage }}
+        </div>
+    </mat-card-content>
+    </mat-card>
 </div>
+</ng-template>
