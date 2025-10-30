@@ -1,0 +1,6 @@
+<nav class="header-nav">
+  <div *ngIf="authService.user$ | async as user">
+    <span>Welcome, {{ user.email }}</span>
+    <button mat-button color="warn" (click)="authService.logout()">Logout</button>
+  </div>
+</nav>

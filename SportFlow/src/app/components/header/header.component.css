@@ -1,0 +1,15 @@
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 24px;
+  background-color: #f5f5f5;
+  align-items: center;
+}
+
+.header-nav span {
+  margin-right: 12px;
+}
+
+.header-nav button {
+  margin-left: 0;
+}

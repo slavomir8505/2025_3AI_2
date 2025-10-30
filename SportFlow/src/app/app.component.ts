@@ -10,21 +10,24 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LeagueService } from './services/league.service';
 import { League } from './interfaces/league.interface';
 import { NgFor } from '@angular/common';
+import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
   selector: 'app-root',
   imports: [
-    MatButtonModule, 
-    MatDividerModule, 
-    MatIconModule, 
-    MatSlideToggleModule, 
-    MatToolbarModule, 
-    MatMenuModule, 
-    MatSidenavModule, 
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
     RouterLink,
     RouterLinkActive,
     NgFor,
-    RouterOutlet],
+    RouterOutlet,
+    HeaderComponent
+],
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css'
 })
