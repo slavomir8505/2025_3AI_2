@@ -11,6 +11,7 @@ import { LeagueService } from './services/league.service';
 import { League } from './interfaces/league.interface';
 import { NgFor } from '@angular/common';
 import { HeaderComponent } from "./components/header/header.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ import { HeaderComponent } from "./components/header/header.component";
     RouterLinkActive,
     NgFor,
     RouterOutlet,
-    HeaderComponent
+    HeaderComponent,
+    FormsModule
 ],
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css'

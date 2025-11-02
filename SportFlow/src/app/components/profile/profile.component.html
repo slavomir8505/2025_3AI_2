@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <h2>Môj profil</h2>
+
+  <div class="photo-section">
+    <img *ngIf="photoURL" [src]="photoURL" alt="Profilová fotka" class="profile-pic" />
+    <input type="file" (change)="onFileSelected($event)" />
+  </div>
+
+  <div class="form-section">
+    <label>Meno:</label>
+    <input [(ngModel)]="name" placeholder="Zadaj meno" />
+
+    <label>Adresa:</label>
+    <input [(ngModel)]="address" placeholder="Zadaj adresu" />
+
+    <button (click)="saveProfile()" [disabled]="loading">
+      {{ loading ? 'Ukladám...' : '💾 Uložiť' }}
+    </button>
+  </div>
+</div>
