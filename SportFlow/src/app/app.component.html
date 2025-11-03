@@ -1,94 +1,89 @@
 
 
 <div class="prvy">
-<mat-toolbar class="prvy">
+  <mat-toolbar class="prvy">
 
- <!-- Logo s odkazom domov -->
- <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="150" style="cursor: pointer;">
-
- <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
-
-
-    <!-- Košík -->
-    <a routerLink="/favourites" routerLinkActive="active" ariaCurrentWhenActive="page"></a>
-    <button mat-icon-button routerLink="/favourites">
-        <mat-icon>favorite</mat-icon>
-    </button>
-
-    <!-- Profil -->
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="example-icon">
-            <mat-icon>person</mat-icon>
-        </button>
-    </a>
-
-    <!-- Menu -->
-    <button mat-icon-button aria-label="Menu">
-        <mat-icon>menu</mat-icon>
-    </button>
-</mat-toolbar>
-</div>
-
-<mat-toolbar color="primary">
-   
-    <!-- Menu s ligami -->
-   
-
-    <mat-menu #menu="matMenu">
-        
-
-        <button *ngFor="let league of leagues" mat-menu-item [routerLink]="['/league', league.id]" [state]="{ league: league }" class="menu-item">
-            <img [src]="league.imageUrl" [alt]="league.name" class="menu-logo-small">
-            <span>{{ league.name }}</span>
-        </button>
-       
-
-    </mat-menu>
-
- <!-- Logo s odkazom domov -->
- <img routerLink="/" aria-label="Logo" src="assets/Sportflow-removebg-preview.png" alt="logo" width="0" style="cursor: pointer;">
-
- <span class="example-spacer"></span> <!-- Vytvorenie priestoru medzi logom a pravou stranou -->
-    <!-- Ikony športov --> 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>sports_soccer</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Hokej">
-        <mat-icon>sports_hockey</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Tenis">
-        <mat-icon>sports_tennis</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Volejbal">
-        <mat-icon>sports_volleyball</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Golf">
-        <mat-icon>golf_course</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Americký futbal">
-        <mat-icon>sports_football</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="MMA">
-        <mat-icon>sports_mma</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Športové výsledky">
-        <mat-icon>sports_score</mat-icon>
-    </button>
+    <!-- Logo -->
+    <img routerLink="/" aria-label="Logo"
+         src="assets/Sportflow-removebg-preview.png"
+         alt="logo" width="150" style="cursor: pointer;">
 
     <span class="example-spacer"></span>
 
- 
+    <!-- Košík -->
+    <button mat-icon-button routerLink="/shoppingcart">
+      <mat-icon>favorite</mat-icon>
+    </button>
+
+    <!-- Profil -->
+    <a routerLink="/account" routerLinkActive="active">
+      <button mat-icon-button aria-label="Profil">
+        <mat-icon>person</mat-icon>
+      </button>
+    </a>
+
+    <!-- Vysúvacie menu -->
+    <button mat-icon-button [matMenuTriggerFor]="dropdownMenu" aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #dropdownMenu="matMenu">
+      <button mat-menu-item routerLink="/dnes">
+        <mat-icon>article</mat-icon>
+        <span>Správy</span>
+      </button>
+      <button mat-menu-item routerLink="/stats">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Grafy</span>
+      </button>
+      <button mat-menu-item routerLink="/kontakt">
+        <mat-icon>contact_support</mat-icon>
+        <span>Kontakt</span>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar>
+</div>
+
+<!-- Toolbar s ikonami športov -->
+<mat-toolbar color="primary">
+
+  <mat-menu #menu="matMenu">
+    <button *ngFor="let league of leagues" mat-menu-item
+            [routerLink]="['/league', league.id]"
+            [state]="{ league: league }" class="menu-item">
+      <img [src]="league.imageUrl" [alt]="league.name" class="menu-logo-small">
+      <span>{{ league.name }}</span>
+    </button>
+  </mat-menu>
+
+  <img routerLink="/" src="assets/Sportflow-removebg-preview.png" alt="logo"
+       width="0" style="cursor: pointer;">
+
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>sports_soccer</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Hokej"><mat-icon>sports_hockey</mat-icon></button>
+  <button mat-icon-button aria-label="Tenis"><mat-icon>sports_tennis</mat-icon></button>
+  <button mat-icon-button aria-label="Volejbal"><mat-icon>sports_volleyball</mat-icon></button>
+  <button mat-icon-button aria-label="Golf"><mat-icon>golf_course</mat-icon></button>
+  <button mat-icon-button aria-label="Americký futbal"><mat-icon>sports_football</mat-icon></button>
+  <button mat-icon-button aria-label="MMA"><mat-icon>sports_mma</mat-icon></button>
+  <button mat-icon-button aria-label="Športové výsledky"><mat-icon>sports_score</mat-icon></button>
+
+  <span class="example-spacer"></span>
+
 </mat-toolbar>
 
-    <app-header></app-header>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
 <footer>
-    <mat-toolbar class="footer">
-        <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
-        <span class="spacer"></span>
-        <a mat-button href="/terms">Podmienky používania</a>
-        <a routerLink="stats" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button href="/stats" >Grafy</a>
-        <a routerLink="kontakt" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button href="/kontakt" >Kontakt</a>
-    </mat-toolbar>
+  <mat-toolbar class="footer">
+    <span>© 2025 SportFlow. Všetky práva vyhradené.</span>
+    <span class="spacer"></span>
+    <a mat-button href="/terms">Podmienky používania</a>
+    <a mat-button routerLink="/kontakt">Kontakt</a>
+  </mat-toolbar>
 </footer>

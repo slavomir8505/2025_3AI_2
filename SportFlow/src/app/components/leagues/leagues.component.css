@@ -1,35 +1,110 @@
-.teams-list {
-  width: 100%;
-  max-width: 600px;
+.teams-container {
+  max-width: 900px;
   margin: 20px auto;
-  border-radius: 6px;
+  padding: 0 20px;
+}
+
+.table-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.teams-table {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.team-item {
-  display: flex;
+.table-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px;
+  padding: 16px 20px;
+  background: linear-gradient(90deg,rgba(26, 102, 196, 1) 0%, rgba(21, 131, 235, 1) 35%, rgba(46, 130, 209, 1) 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.team-item:hover {
-  background-color: #3a7bd5;
-  color: white;
+.team-row:hover {
+  background-color: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.team-row:last-child {
+  border-bottom: none;
+}
+
+/* Zelená pre top 4 (Liga majstrov) */
+.team-row.top-four {
+  border-left: 4px solid #28a745;
+}
+
+/* Červená pre zostup */
+.team-row.relegation {
+  border-left: 4px solid #dc3545;
+}
+
+.position {
+  font-weight: bold;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .team-logo {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   object-fit: contain;
-  margin-right: 10px;
 }
 
 .team-name {
   font-size: 16px;
   font-weight: 500;
+  color: #1a1a1a;
 }
 
+.team-points {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1a73e8;
+  text-align: right;
+}
 
+/* Responsive */
+@media (max-width: 768px) {
+  .table-header,
+  .team-row {
+    grid-template-columns: 40px 1fr 60px;
+    padding: 12px 15px;
+  }
+  
+  .team-name {
+    font-size: 14px;
+  }
+  
+  .team-logo {
+    width: 30px;
+    height: 30px;
+  }
+}
