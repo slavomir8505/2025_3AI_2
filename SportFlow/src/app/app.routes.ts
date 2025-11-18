@@ -7,6 +7,7 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { LlamaComponent } from './components/llama/llama.component';
 import { guardGuard } from './guard.guard'; // ← tvoj AuthGuard
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'dnes', component: DnesComponent, canActivate: [guardGuard] },
     { path: 'kontakt', component: KontaktComponent, canActivate: [guardGuard] },
     { path: 'stats', component: StatsComponent, canActivate: [guardGuard] },
+    { path: 'llama', component: LlamaComponent, canActivate: [guardGuard] },
 
     // Login a Register zostávajú otvorené
     { path: 'login', component: LoginComponent },

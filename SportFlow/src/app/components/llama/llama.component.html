@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Assistance</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; background: #f5f5f5; }
+    .wrap { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+    h1 { margin-top: 0; }
+    .section { margin-bottom: 20px; }
+    .chatbox { border: 1px solid #ccc; padding: 10px; border-radius: 6px; height: 250px; overflow: auto; background:#fafafa; }
+    .input-area { display: flex; gap: 10px; margin-top: 10px; }
+    input { flex: 1; padding: 8px; }
+    button { padding: 8px 14px; cursor: pointer; }
+    .msg { margin-bottom: 8px; }
+    .ai { color: #333; }
+    .user { text-align: right; color: #0077cc; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>AI Assistance</h1>
+    <p>Jednoduchá podstránka pre AI asistenta.</p>
+
+    
+
+    <div class="section">
+      <h2>Ukážka chatu</h2>
+      <div class="chatbox" id="messages">
+        <div class="msg ai">Ahoj! Ako ti môžem pomôcť?</div>
+      </div>
+
+      <div class="input-area">
+        <input id="input" placeholder="Napíš správu..." />
+        <button id="send">Odoslať</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const messages = document.getElementById('messages');
+    const input = document.getElementById('input');
+    const send = document.getElementById('send');
+
+    function addMsg(text, cls) {
+      const d = document.createElement('div');
+      d.className = 'msg ' + cls;
+      d.textContent = text;
+      messages.appendChild(d);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    send.onclick = () => {
+      const v = input.value.trim();
+      if (!v) return;
+      addMsg(v, 'user');
+      input.value = '';
+      setTimeout(() => addMsg('Toto je jednoduchá demo odpoveď 🙂', 'ai'), 600);
+    };
+
+    input.addEventListener('keypress', e => {
+      if (e.key === 'Enter') send.click();
+    });
+  </script>
+</body>
+</html>
