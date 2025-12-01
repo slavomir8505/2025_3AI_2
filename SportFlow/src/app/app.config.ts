@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideHttpClient } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC2YcuOqn7Mo3mbp00VygeLjyezlO2XVqc",
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(),
     provideAnimationsAsync(),
     importProvidersFrom(
       AngularFirestoreModule,
