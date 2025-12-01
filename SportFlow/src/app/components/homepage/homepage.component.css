@@ -1,0 +1,264 @@
+.homepage {
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 5%;
+      
+      color: black;
+      min-height: 600px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .brand {
+      color: #4ea8ff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .floating-ball {
+      font-size: 200px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #1a73e8;
+      color: white;
+    }
+
+    .btn-primary:hover {
+  background: #4ea8ff; /* svetlá modrá pri hoveri */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* modrý tieň */
+}
+
+    .btn-secondary {
+      background: black;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #1a73e8;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1a73e8;
+      border: 2px solid #1a73e8;
+      padding: 10px 25px;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline:hover {
+      background: #1a73e8;
+      color: white;
+    }
+
+    /* Sections */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 5%;
+      background: #f8f9fa;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .feature-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .feature-description {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Leagues Section */
+    .leagues {
+      padding: 80px 5%;
+      background: white;
+    }
+
+    .leagues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .league-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+    }
+
+    .league-card:hover {
+      transform: scale(1.03);
+    }
+
+    .league-header {
+      margin-bottom: 15px;
+    }
+
+    .league-header h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .league-country {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .league-teams {
+      color: #555;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 80px 5%;
+      background: #f8f9fa;
+      text-align: center;
+      color: #1a73e8;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-image {
+        margin-top: 40px;
+      }
+
+      .floating-ball {
+        font-size: 120px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  

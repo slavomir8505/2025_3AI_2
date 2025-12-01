@@ -50,7 +50,7 @@ export class LoginComponent {
       this.authService.login(username, password)
         .then(() => {
           console.log('Login successful');
-          this.router.navigateByUrl('/settings'); // alebo hociktorá chránená stránka
+          this.router.navigateByUrl('/'); // alebo hociktorá chránená stránka
         })
         .catch((err: any) => {
           console.error('Login error', err);

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { LeaguesComponent } from './components/leagues/leagues.component';
 import { SpravyComponent } from './components/spravy/spravy.component';
 import { DnesComponent } from './components/dnes/dnes.component';
@@ -11,7 +12,8 @@ import { LlamaComponent } from './components/llama/llama.component';
 import { guardGuard } from './guard.guard'; // ← tvoj AuthGuard
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [guardGuard] },
+    { path: '', component: HomepageComponent, canActivate: [guardGuard] },
+    { path: 'old-home', component: HomeComponent, canActivate: [guardGuard] },
     { path: 'league/:id', component: LeaguesComponent, canActivate: [guardGuard] },
     { path: 'spravy', component: SpravyComponent, canActivate: [guardGuard] },
     { path: 'dnes', component: DnesComponent, canActivate: [guardGuard] },

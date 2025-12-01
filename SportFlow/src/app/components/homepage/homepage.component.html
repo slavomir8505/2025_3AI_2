@@ -1,0 +1,62 @@
+<div class="homepage">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Vitajte v <span class="brand">SportFlow</span>
+      </h1>
+      <p class="hero-subtitle">
+        Vaša platforma pre živé futbalové výsledky, štatistiky a aktuality
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" routerLink="/league/140">
+          Preskúmať Ligy
+        </button>
+        <button class="btn btn-secondary" routerLink="/dnes">
+          Aktuálne správy
+        </button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="floating-ball">⚽</div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2 class="section-title">Prečo SportFlow?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Leagues -->
+  <section class="leagues">
+    <h2 class="section-title">Populárne Ligy</h2>
+    <div class="leagues-grid">
+      <div class="league-card" *ngFor="let league of popularLeagues">
+        <div class="league-header">
+          <h3>{{ league.name }}</h3>
+          <span class="league-country">{{ league.country }}</span>
+        </div>
+        <p class="league-teams">{{ league.teams }} tímov</p>
+        <button class="btn btn-outline" [routerLink]="['/league', league.id]">
+          Zobraziť tabuľku
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>Pripravení začať?</h2>
+    <p>Sledujte svoje obľúbené tímy a buďte vždy v obraze</p>
+    <button class="btn btn-primary" routerLink="/stats">
+      Pozrieť Štatistiky
+    </button>
+  </section>
+</div>
