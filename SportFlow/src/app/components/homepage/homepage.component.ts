@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +10,9 @@ import { RouterModule } from '@angular/router';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
+  leagues: any[] = [];
+
   features = [
     {
       icon: '⚽',
@@ -33,10 +36,35 @@ export class HomepageComponent {
     }
   ];
 
-  popularLeagues = [
-    { name: 'La Liga', country: 'Španielsko', teams: 20, id: 140 },
-    { name: 'Premier League', country: 'Anglicko', teams: 20, id: 39 },
-    { name: 'Bundesliga', country: 'Nemecko', teams: 18, id: 78 },
-    { name: 'Serie A', country: 'Taliansko', teams: 20, id: 135 }
-  ];
+  constructor(private firestore: AngularFirestore) {}
+
+  ngOnInit() {
+    this.loadLeaguesFromFirebase();
+  }
+
+  loadLeaguesFromFirebase(): void {
+    this.firestore.collection('leagues')
+      .snapshotChanges()
+      .subscribe(
+        (data: any[]) => {
+          this.leagues = data
+            .map(doc => ({
+              id: doc.payload.doc.id,
+              ...doc.payload.doc.data()
+            }))
+            .sort((a, b) => a.id - b.id);
+          console.log('Ligy načítané:', this.leagues);
+        },
+        (error) => {
+          console.error('Chyba pri načítavaní líg:', error);
+          // Fallback na testovací dáta
+          this.leagues = [
+            { name: 'La Liga', id: 140, imageUrl: 'assets/laliga.png' },
+            { name: 'Premier League', id: 39, imageUrl: 'assets/premier.png' },
+            { name: 'Bundesliga', id: 78, imageUrl: 'assets/bundesliga.png' },
+            { name: 'Serie A', id: 135, imageUrl: 'assets/seria.png' }
+          ];
+        }
+      );
+  }
 }

@@ -4,4 +4,5 @@ export interface Spravy {
     title: string;
     content: string;
     imageUrl: string;
+    expanded?: boolean;
 }

@@ -35,21 +35,20 @@
   </section>
 
   <!-- Popular Leagues -->
-  <section class="leagues">
-    <h2 class="section-title">Populárne Ligy</h2>
-    <div class="leagues-grid">
-      <div class="league-card" *ngFor="let league of popularLeagues">
-        <div class="league-header">
-          <h3>{{ league.name }}</h3>
-          <span class="league-country">{{ league.country }}</span>
-        </div>
-        <p class="league-teams">{{ league.teams }} tímov</p>
-        <button class="btn btn-outline" [routerLink]="['/league', league.id]">
-          Zobraziť tabuľku
-        </button>
-      </div>
-    </div>
-  </section>
+ <!-- Popular Leagues -->
+<section class="leagues">
+  <h2 class="section-title">Populárne Ligy</h2>
+  <div class="leagues-grid">
+    <button *ngFor="let league of leagues" 
+            mat-menu-item
+            [routerLink]="['/league', league.id]"
+            [state]="{ league: league }" 
+            class="menu-item">
+      <img [src]="league.imageUrl" [alt]="league.name" class="menu-logo-small">
+      <span>{{ league.name }}</span>
+    </button>
+  </div>
+</section>
 
   <!-- CTA Section -->
   <section class="cta">

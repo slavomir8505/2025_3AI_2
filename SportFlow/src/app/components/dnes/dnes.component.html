@@ -1,13 +1,14 @@
-<h1 class="sports-news-title">Novinky zo sveta športu</h1>
+<div class="news-section">
+  <h1 class="sports-news-title">Novinky zo sveta športu</h1>
 
-<div *ngFor="let spravy of spravy" >
-    <div class="spravy-card">
-       
-        <h2 class="spravy-title">{{ spravy.title }}</h2>
-        <p class="spravy-content">{{ spravy.content }}</p>
-        <img [src]="spravy.imageUrl" [alt]="spravy.imageUrl" class="menu-logo-small">
-        
+  <div class="news-container">
+    <div *ngFor="let spravy of spravy" 
+         class="spravy-card" 
+         [class.expanded]="spravy.expanded"
+         (click)="toggleExpand(spravy)">
+      <h2 class="spravy-title">{{ spravy.title }}</h2>
+      <p class="spravy-content">{{ spravy.content }}</p>
+      <img [src]="spravy.imageUrl" [alt]="spravy.title" class="menu-logo-small">
     </div>
+  </div>
 </div>
-
-

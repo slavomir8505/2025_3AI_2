@@ -12,12 +12,18 @@ import { Spravy } from '../../interfaces/spravy.interface';
 
 export class DnesComponent {
   spravy!: Spravy[];
+  
   constructor(private service: SpravyService) {
-    // Initialization logic can go here
-    this.service.getListOfSpravy().subscribe(list=>{
-      this.spravy = list
-      console.log(this.spravy)
-    })
+    this.service.getListOfSpravy().subscribe(list => {
+      this.spravy = list.map(spravy => ({
+        ...spravy,
+        expanded: false
+      }));
+      console.log(this.spravy);
+    });
   }
 
+  toggleExpand(spravy: any): void {
+    spravy.expanded = !spravy.expanded;
+  }
 }
