@@ -16,6 +16,6 @@ import { DnesComponent } from '../dnes/dnes.component';
   selector: 'home-app',
   templateUrl: 'home.component.html',
   styleUrl: 'home.component.css',
-  imports: [MatButtonModule, RouterModule, SpravyComponent, DnesComponent, MatDividerModule, MatIconModule, MatSlideToggleModule, MatToolbarModule, MatMenuModule, MatSidenavModule, CommonModule,],
+  imports: [MatButtonModule, RouterModule, MatDividerModule, MatIconModule, MatSlideToggleModule, MatToolbarModule, MatMenuModule, MatSidenavModule, CommonModule],
 })
 export class HomeComponent { }
