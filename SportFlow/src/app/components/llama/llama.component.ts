@@ -1,67 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OllamaService } from '../../services/ollama.service';
 
-interface Message {
-  text: string;
-  isUser: boolean;
-  timestamp: Date;
-}
-
 @Component({
-  selector: 'app-llama',  // <-- Zmenené z 'app-chat' na 'app-llama'
+  selector: 'app-llama',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './llama.component.html',
-  styleUrls: ['./llama.component.css']
+  styleUrl: './llama.component.css'
 })
-export class LlamaComponent {  // <-- Zmenené z ChatComponent na LlamaComponent
-  messages: Message[] = [{
-    text: 'Ahoj! Ako ti môžem pomôcť?',
-    isUser: false,
-    timestamp: new Date()
-  }];
-  
-  userInput: string = '';
-  isLoading: boolean = false;
+export class LlamaComponent implements OnInit {  // ← Pridaj 'export'
+  messages: Array<{ text: string; role: 'user' | 'assistant' }> = [];
+  promptInput = '';
+  isLoading = false;
+  isConnected = false;
 
   constructor(private ollamaService: OllamaService) {}
 
-  sendMessage(): void {
-    const trimmedInput = this.userInput.trim();
-    if (!trimmedInput || this.isLoading) return;
+  ngOnInit() {
+    this.checkConnection();
+    this.addMessage('Ahoj! 👋 Som tvoj AI asistent. Ako ti môžem pomôcť s informáciami o športe?', 'assistant');
+  }
 
-    // Pridať správu používateľa
-    this.messages.push({
-      text: trimmedInput,
-      isUser: true,
-      timestamp: new Date()
+  checkConnection() {
+    this.ollamaService.checkConnection().subscribe({
+      next: () => {
+        this.isConnected = true;
+      },
+      error: () => {
+        this.isConnected = false;
+      }
     });
+  }
 
+  sendMessage() {
+    if (!this.promptInput.trim() || this.isLoading) return;
+
+    this.addMessage(this.promptInput, 'user');
+    const prompt = this.promptInput;
+    this.promptInput = '';
     this.isLoading = true;
-    const prompt = trimmedInput;
-    this.userInput = '';
 
-    // Volať Ollama API
-    this.ollamaService.generateResponse(prompt).subscribe({
+    this.ollamaService.processPrompt(prompt).subscribe({
       next: (response) => {
-        this.messages.push({
-          text: response.response,
-          isUser: false,
-          timestamp: new Date()
-        });
+        this.addMessage(response.response, 'assistant');
         this.isLoading = false;
       },
       error: (error) => {
-        console.error('Chyba pri volaní Ollama API:', error);
-        this.messages.push({
-          text: 'Prepáčte, nastala chyba pri spracovaní vašej správy.',
-          isUser: false,
-          timestamp: new Date()
-        });
+        this.addMessage('Oops! Vyskytla sa chyba. Skús to neskôr.', 'assistant');
         this.isLoading = false;
       }
     });
+  }
+
+  private addMessage(text: string, role: 'user' | 'assistant') {
+    this.messages.push({ text, role });
   }
 }

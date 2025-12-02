@@ -14,10 +14,15 @@ export class OllamaService {
   processPrompt(prompt: string): Observable<OllamaResponse> {
     const requestBody = {
       model: environment.llamaModel,
-      prompt: prompt
+      prompt: prompt,
       stream: false
     };
 
     return this.httpClient.post<OllamaResponse>(environment.llamaApiUrl, requestBody);
+  }
+
+  // Pridaj túto metódu
+  checkConnection(): Observable<any> {
+    return this.httpClient.get(`${environment.llamaApiUrl}/api/tags`);
   }
 }
