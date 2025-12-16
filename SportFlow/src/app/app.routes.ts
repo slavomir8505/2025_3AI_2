@@ -8,8 +8,8 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { LlamaComponent } from './components/llama/llama.component';
 import { guardGuard } from './guard.guard'; // ← tvoj AuthGuard
+import { LlamaComponent } from './components/llama/llama.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, canActivate: [guardGuard] },
