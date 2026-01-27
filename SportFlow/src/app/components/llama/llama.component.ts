@@ -1,60 +1,117 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OllamaService } from '../../services/ollama.service';
+
+
+interface Message {
+  role: 'user' | 'assistant';
+  text: string;
+}
 
 @Component({
   selector: 'app-llama',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './llama.component.html',
-  styleUrl: './llama.component.css'
+  styleUrls: ['./llama.component.css']
 })
-export class LlamaComponent implements OnInit {  // ← Pridaj 'export'
-  messages: Array<{ text: string; role: 'user' | 'assistant' }> = [];
-  promptInput = '';
-  isLoading = false;
-  isConnected = false;
+export class LlamaComponent implements OnInit, AfterViewChecked {
+  @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
+
+  messages: Message[] = [];
+  promptInput: string = '';
+  isLoading: boolean = false;
+  isConnected: boolean = false;
 
   constructor(private ollamaService: OllamaService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.checkConnection();
-    this.addMessage('Ahoj! 👋 Som tvoj AI asistent. Ako ti môžem pomôcť s informáciami o športe?', 'assistant');
+    // Pridaj uvítaciu správu
+    this.messages.push({
+      role: 'assistant',
+      text: 'Ahoj! Som SportFlow AI asistent. Opýtaj sa ma na čokoľvek o športe! ⚽🏀🎾'
+    });
   }
 
-  checkConnection() {
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+  }
+
+  checkConnection(): void {
     this.ollamaService.checkConnection().subscribe({
-      next: () => {
+      next: (response) => {
         this.isConnected = true;
+        console.log('✓ Ollama pripojená', response);
       },
-      error: () => {
+      error: (error) => {
+        this.isConnected = false;
+        console.error('✗ Ollama nie je dostupná:', error);
+        console.log('Skontroluj či beží: ollama serve');
+      }
+    });
+  }
+
+  sendMessage(): void {
+    const trimmedInput = this.promptInput.trim();
+    
+    if (!trimmedInput || this.isLoading) {
+      return;
+    }
+
+    // Pridaj user správu
+    const userMessage: Message = {
+      role: 'user',
+      text: trimmedInput
+    };
+    this.messages.push(userMessage);
+
+    // Uložíme prompt a vymažeme input
+    const prompt = trimmedInput;
+    this.promptInput = '';
+    this.isLoading = true;
+
+    // Zavolaj Ollama API
+    this.ollamaService.processPrompt(prompt).subscribe({
+      next: (response) => {
+        console.log('Odpoveď z Ollama:', response);
+        const assistantMessage: Message = {
+          role: 'assistant',
+          text: response.response || 'Prepáč, nedostal som žiadnu odpoveď.'
+        };
+        this.messages.push(assistantMessage);
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Chyba pri komunikácii s Ollama:', error);
+        let errorText = 'Prepáč, nastala chyba pri spracovaní tvojej otázky.';
+        
+        if (error.status === 0) {
+          errorText = 'Nemôžem sa pripojiť k Ollama. Skontroluj či beží "ollama serve".';
+        } else if (error.status === 404) {
+          errorText = 'Model llama3.2:3b nebol nájdený. Spusti: ollama pull llama3.2:3b';
+        }
+
+        const errorMessage: Message = {
+          role: 'assistant',
+          text: errorText
+        };
+        this.messages.push(errorMessage);
+        this.isLoading = false;
         this.isConnected = false;
       }
     });
   }
 
-  sendMessage() {
-    if (!this.promptInput.trim() || this.isLoading) return;
-
-    this.addMessage(this.promptInput, 'user');
-    const prompt = this.promptInput;
-    this.promptInput = '';
-    this.isLoading = true;
-
-    this.ollamaService.processPrompt(prompt).subscribe({
-      next: (response) => {
-        this.addMessage(response.response, 'assistant');
-        this.isLoading = false;
-      },
-      error: (error) => {
-        this.addMessage('Oops! Vyskytla sa chyba. Skús to neskôr.', 'assistant');
-        this.isLoading = false;
+  private scrollToBottom(): void {
+    try {
+      if (this.messagesContainer) {
+        this.messagesContainer.nativeElement.scrollTop = 
+          this.messagesContainer.nativeElement.scrollHeight;
       }
-    });
-  }
-
-  private addMessage(text: string, role: 'user' | 'assistant') {
-    this.messages.push({ text, role });
+    } catch(err) {
+      console.error('Scroll error:', err);
+    }
   }
 }

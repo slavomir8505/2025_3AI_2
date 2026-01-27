@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { OllamaResponse } from '../interfaces/models/ollama-response';
 
@@ -8,6 +8,9 @@ import { OllamaResponse } from '../interfaces/models/ollama-response';
   providedIn: 'root'
 })
 export class OllamaService {
+  private readonly headers = new HttpHeaders({
+    'Content-Type': 'application/json'
+  });
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,12 +20,19 @@ export class OllamaService {
       prompt: prompt,
       stream: false
     };
-
-    return this.httpClient.post<OllamaResponse>(environment.llamaApiUrl, requestBody);
+    
+    console.log('Posielam request na Ollama:', requestBody);
+    
+    return this.httpClient.post<OllamaResponse>(
+      environment.llamaApiUrl, 
+      requestBody,
+      { headers: this.headers }
+    );
   }
 
-  // Pridaj túto metódu
   checkConnection(): Observable<any> {
-    return this.httpClient.get(`${environment.llamaApiUrl}/api/tags`);
+    // Odstráň /api/generate z URL pre check
+    const baseUrl = 'http://localhost:11434';
+    return this.httpClient.get(`${baseUrl}/api/tags`);
   }
 }

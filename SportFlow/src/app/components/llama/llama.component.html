@@ -1,16 +1,21 @@
 <div class="chat-container">
   <div class="chat-header">
-    <h1>🤖 SportFlow AI Chat</h1>
+    <h1>SportFlow AI Chat</h1>
     <p>Pýtaj sa na čokoľvek o športe</p>
   </div>
 
   <div class="messages-container" #messagesContainer>
-    <div *ngFor="let message of messages" class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
+    <!-- OPRAVA: Pridaj * pred ngFor -->
+    <div *ngFor="let message of messages" 
+         class="message" 
+         [class.user]="message.role === 'user'" 
+         [class.assistant]="message.role === 'assistant'">
       <div class="message-content">
         {{ message.text }}
       </div>
     </div>
 
+    <!-- OPRAVA: Pridaj * pred ngIf a medzeru medzi div a ngIf -->
     <div *ngIf="isLoading" class="message assistant">
       <div class="message-content">
         <div class="loading">
@@ -22,20 +27,23 @@
     </div>
   </div>
 
-  <div class="status" [class.connected]="isConnected" [class.disconnected]="!isConnected">
+  <div class="status" 
+       [class.connected]="isConnected" 
+       [class.disconnected]="!isConnected">
     {{ isConnected ? '✓ Pripojené' : '✗ Odpojené' }}
   </div>
 
   <div class="input-section">
     <div class="input-group">
-      <input 
-        type="text" 
-        class="chat-input" 
-        [(ngModel)]="promptInput"
-        (keypress)="$event.key === 'Enter' && sendMessage()"
-        placeholder="Napíš svoju otázku..."
-        autocomplete="off">
-      <button class="btn-send" (click)="sendMessage()" [disabled]="isLoading">
+      <input type="text" 
+             class="chat-input"
+             [(ngModel)]="promptInput"
+             (keypress)="$event.key === 'Enter' && sendMessage()"
+             placeholder="Napíš svoju otázku..."
+             autocomplete="off">
+      <button class="btn-send" 
+              (click)="sendMessage()" 
+              [disabled]="isLoading">
         {{ isLoading ? 'Čakaj...' : 'Odoslať' }}
       </button>
     </div>
